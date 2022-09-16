@@ -1,0 +1,458 @@
+<?php
+
+
+
+// if( have_rows('hc_items') ){
+//   $i=0;
+//   while ( have_rows('hc_items') ){
+//     the_row(); $i++;
+//
+//     $hc_i_image = get_sub_field('hc_i_image');
+//
+//     echo '
+//       <div style="background:url('.$hc_i_image['sizes']['max'].');"></div>';
+//   }
+// }
+
+if( have_rows('flexible_content') ):
+    while ( have_rows('flexible_content') ) : the_row();
+
+      if( get_row_layout() == 'spacer' ):
+
+        $s_desktop = get_sub_field('s_desktop');
+        $s_tablet = get_sub_field('s_tablet');
+        $s_mobile = get_sub_field('s_mobile');
+        $s_rand = mt_rand(0000,9999);
+
+    ?>
+    <!--  -->
+    <style>
+      .spacer#spacer<?php echo $s_rand; ?>{
+        height: <?php echo $s_desktop; ?>px;
+      }
+      @media(max-width:991){
+        .spacer#spacer<?php echo $s_rand; ?>{
+          height: <?php echo $s_tablet; ?>px;
+        }
+      }
+      @media(max-width:767){
+        .spacer#spacer<?php echo $s_rand; ?>{
+          height: <?php echo $s_mobile; ?>px;
+        }
+      }
+    </style>
+    <div class="spacer" id="spacer<?php echo $s_rand; ?>"></div>
+    <!--  -->
+    
+
+    <?php
+
+      elseif( get_row_layout() == 'homepage' ):
+
+        $home_title = get_sub_field('home_title');
+        $home_subtitle = get_sub_field('home_subtitle');
+
+    ?>
+    <div style="background-image:url('<?php echo get_stylesheet_directory_uri(); ?>/images/image1.jpg');" class="homeBlock">
+    <div class="container">
+      <div class="w-full max-w-2xl mx-auto">
+            <?php 
+                if($home_title != ''){
+                    echo '<h1>'.$home_title.'</h1>';
+                }
+            ?>
+            <?php 
+                if($home_subtitle != ''){
+                    echo '<p>'.$home_subtitle.'</p>';
+                }
+            ?>
+            <div class="w-full mt-10">
+            <?php echo do_shortcode('[wd_asp id=1]'); ?>
+            </div>
+      </div>
+    </div>
+    </div>
+
+
+    <?php
+
+      elseif( get_row_layout() == 'top_page' ):
+
+        $toppage_image = get_sub_field('toppage_image');
+        $toppage_title = get_sub_field('toppage_title');
+
+    ?>
+    <div class="topPage">
+        <div class="bg"></div>
+        <div style="background-image:url('<?php echo $toppage_image['sizes']['max']; ?>')" class="image"></div>
+        <div class="container">
+            <h2><?php echo $toppage_title; ?></h2>
+            <a href="/" class="mt-2 logoPro">
+                <img src="<?php echo get_stylesheet_directory_uri(); ?>/images/logo-white.svg" alt=""/>
+            </a>
+        </div>
+    </div>
+
+
+    <?php
+
+      elseif( get_row_layout() == 'page_tabs' ):
+
+        if( have_rows('pt_items') ){
+          $i=0;
+          echo '<div class="tabs" data-js="false"><div class="tabs-nav">';
+          while ( have_rows('pt_items') ){
+            the_row(); $i++;
+
+            $pt_i_title = get_sub_field('pt_i_title');
+            $pt_i_link = get_sub_field('pt_i_link');
+            $pt_i_active = get_sub_field('pt_i_active');
+
+            echo '<a href="'.$pt_i_link.'" '.($pt_i_active ? 'class="active"' : '').' data-id="t1">'.$pt_i_title.'</a>';
+          }
+          echo '</div></div>';
+        }
+
+    ?>
+
+    <?php
+
+      elseif( get_row_layout() == 'accordions' ):
+
+        if( have_rows('accordions_items') ){
+          $i=0;
+          echo '<div class="container"><div class="accordion">';
+          while ( have_rows('accordions_items') ){
+            the_row(); $i++;
+
+            $accordions_i_title = get_sub_field('accordions_i_title');
+            $accordions_i_content = get_sub_field('accordions_i_content');
+
+            echo '
+            <div>
+              <a href="#" class="accordion-title">'.$accordions_i_title.' <span><i class="icon-chevron-down"></i></span></a>
+              <div class="accordion-content">
+                '.$accordions_i_content.'
+              </div>
+            </div>
+            ';
+          }
+          echo '</div></div>';
+        }
+
+    ?>
+
+    <?php
+
+      elseif( get_row_layout() == 'block_with_image_left' ):
+
+        $bwil_image = get_sub_field('bwil_image');
+        $bwil_overtitle = get_sub_field('bwil_overtitle');
+        $bwil_title = get_sub_field('bwil_title');
+        $bwil_subtitle = get_sub_field('bwil_subtitle');
+        $bwil_text = get_sub_field('bwil_text');
+        $bwil_button = get_sub_field('bwil_button');
+
+    ?>
+    <div class="container">
+        <div class="block_with_image_left">
+          <div>
+
+          </div>
+          <div class="bgImage s100" style="background:url('<?php echo $bwil_image['sizes']['large']; ?>')"></div>
+        </div>
+    </div>
+
+
+    
+    <div class="container">
+      <div class="row d-flex align-items-center py-5">
+        <div class="col-lg-6 my-3">
+          <div class="bgImage s100" style="background:url('<?php echo $bwil_image['sizes']['large']; ?>')"></div>
+        </div>
+        <div class="col-lg-6 my-3">
+          <div class="px-lg-5">
+            <?php if($bwil_overtitle != ''){ ?>
+              <p class="uppercase bold small mb-0"><?php echo $bwil_overtitle; ?></p>
+            <?php } ?>
+            <?php if($bwil_title != ''){ ?>
+              <h2 class="font-secondary"><?php echo $bwil_title; ?></h2>
+            <?php } ?>
+            <?php if($bwil_subtitle != ''){ ?>
+              <p class="text-black-50 py-3"><?php echo $bwil_subtitle; ?></p>
+            <?php } ?>
+            <?php echo $bwil_text; ?>
+            <?php if($bwil_button){ ?>
+              <a href="<?php echo $bwil_button['url']; ?>" <?php if($bwil_button['target']=='_blank'){ echo 'target="_blank"'; } ?> class="button underline mt-4"><span><?php echo $bwil_button['title']; ?></span> &rarr;</a>
+            <?php } ?>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <?php
+
+      elseif( get_row_layout() == 'products_archive' ):
+
+        $product_archive_filter_shortcode = get_sub_field('product_archive_filter_shortcode');
+        $product_archive_result_shortcode = get_sub_field('product_archive_result_shortcode');
+
+    ?>
+    <div class="productArchive">
+        <div class="container">
+
+            <div class="filter">
+                <?php echo do_shortcode($product_archive_filter_shortcode); ?>
+            </div>
+            <?php echo do_shortcode($product_archive_result_shortcode); ?>
+
+        </div>
+    </div>
+
+    <?php
+
+      elseif( get_row_layout() == 'ingredients_index' ):
+
+
+        if(is_user_logged_in()) {
+
+        $loop = new WP_Query(
+          array(
+            'post_type' => 'ing',
+            'posts_per_page' => -1,
+            'post_status' => 'publish',
+            'order'=>'asc',
+            'orderby' => 'name' // modified | title | name | ID | rand
+          )
+        );
+        $array = array();
+        if($loop->have_posts()){
+          while ($loop->have_posts()){
+            $loop->the_post();
+            $first_letter = strtoupper(mb_substr(get_the_title(), 0, 1, "UTF-8"));
+            $array[$first_letter][] = '<h5 class="font-helvetica75"><a href="'.get_the_permalink().'" class="hover:text-secondary">'.get_the_title().'</a></h5><div class="font-helvetica35">'.get_the_content().'</div>';
+          }
+        }
+        wp_reset_postdata();
+
+    ?>
+    <!--  -->
+    <div class="topPageIngredients d-flex align-items-center justify-content-center" >
+      <div class="container">
+        <h2  class="mb-10">Ingredient index</h2>
+	      <?php echo do_shortcode('[wd_asp id=2]'); ?>
+      </div>
+    </div>
+    <!--  -->
+    <div class="container">
+      <div class="productIngredientsABC">
+        <?php
+          if(count($array)>0){
+            echo '<div class="navs">';
+            foreach($array as $key=>$value){
+              echo '<a href="#scrollto_'.$key.'">'.$key.'</a>';
+            }
+            echo '</div>';
+          }
+        ?>
+        <div class="grid grid-cols-1 gap-4">
+        <?php
+          if(count($array)>0){
+            foreach($array as $key=>$value){
+              echo '<div class="row py-4" id="scrollto_'.$key.'">';
+              echo '<h2>'.$key.'</h2>';
+              foreach($value as $item){
+                echo '<div class="col-md-6 col-lg-4 py-4">'.$item.'</div>';
+
+              }
+              echo '</div>';
+            }
+          }
+        ?>
+        </div>
+      </div>
+    </div>
+
+    <?php
+      }else{
+        echo lockedContent('Ingredients', false);
+      }
+    ?>
+
+    <?php
+
+      elseif( get_row_layout() == '' ):
+
+        // $ = get_sub_field('');
+        // $ = get_sub_field('');
+        // $ = get_sub_field('');
+        // $ = get_sub_field('');
+        // $ = get_sub_field('');
+        // $ = get_sub_field('');
+        // $ = get_sub_field('');
+        // $ = get_sub_field('');
+
+    ?>
+
+    <?php
+
+      elseif( get_row_layout() == '' ):
+
+        // $ = get_sub_field('');
+        // $ = get_sub_field('');
+        // $ = get_sub_field('');
+        // $ = get_sub_field('');
+        // $ = get_sub_field('');
+        // $ = get_sub_field('');
+        // $ = get_sub_field('');
+        // $ = get_sub_field('');
+
+    ?>
+
+    <?php
+
+      elseif( get_row_layout() == '' ):
+
+        // $ = get_sub_field('');
+        // $ = get_sub_field('');
+        // $ = get_sub_field('');
+        // $ = get_sub_field('');
+        // $ = get_sub_field('');
+        // $ = get_sub_field('');
+        // $ = get_sub_field('');
+        // $ = get_sub_field('');
+
+    ?>
+
+    <?php
+
+      elseif( get_row_layout() == '' ):
+
+        // $ = get_sub_field('');
+        // $ = get_sub_field('');
+        // $ = get_sub_field('');
+        // $ = get_sub_field('');
+        // $ = get_sub_field('');
+        // $ = get_sub_field('');
+        // $ = get_sub_field('');
+        // $ = get_sub_field('');
+
+    ?>
+
+    <?php
+
+      elseif( get_row_layout() == '' ):
+
+        // $ = get_sub_field('');
+        // $ = get_sub_field('');
+        // $ = get_sub_field('');
+        // $ = get_sub_field('');
+        // $ = get_sub_field('');
+        // $ = get_sub_field('');
+        // $ = get_sub_field('');
+        // $ = get_sub_field('');
+
+    ?>
+
+    <?php
+
+      elseif( get_row_layout() == '' ):
+
+        // $ = get_sub_field('');
+        // $ = get_sub_field('');
+        // $ = get_sub_field('');
+        // $ = get_sub_field('');
+        // $ = get_sub_field('');
+        // $ = get_sub_field('');
+        // $ = get_sub_field('');
+        // $ = get_sub_field('');
+
+    ?>
+
+    <?php
+
+      elseif( get_row_layout() == '' ):
+
+        // $ = get_sub_field('');
+        // $ = get_sub_field('');
+        // $ = get_sub_field('');
+        // $ = get_sub_field('');
+        // $ = get_sub_field('');
+        // $ = get_sub_field('');
+        // $ = get_sub_field('');
+        // $ = get_sub_field('');
+
+    ?>
+
+    <?php
+
+      elseif( get_row_layout() == '' ):
+
+        // $ = get_sub_field('');
+        // $ = get_sub_field('');
+        // $ = get_sub_field('');
+        // $ = get_sub_field('');
+        // $ = get_sub_field('');
+        // $ = get_sub_field('');
+        // $ = get_sub_field('');
+        // $ = get_sub_field('');
+
+    ?>
+
+    <?php
+
+      elseif( get_row_layout() == '' ):
+
+        // $ = get_sub_field('');
+        // $ = get_sub_field('');
+        // $ = get_sub_field('');
+        // $ = get_sub_field('');
+        // $ = get_sub_field('');
+        // $ = get_sub_field('');
+        // $ = get_sub_field('');
+        // $ = get_sub_field('');
+
+    ?>
+
+    <?php
+
+      elseif( get_row_layout() == '' ):
+
+        // $ = get_sub_field('');
+        // $ = get_sub_field('');
+        // $ = get_sub_field('');
+        // $ = get_sub_field('');
+        // $ = get_sub_field('');
+        // $ = get_sub_field('');
+        // $ = get_sub_field('');
+        // $ = get_sub_field('');
+
+    ?>
+
+    <?php
+
+      elseif( get_row_layout() == '' ):
+
+        // $ = get_sub_field('');
+        // $ = get_sub_field('');
+        // $ = get_sub_field('');
+        // $ = get_sub_field('');
+        // $ = get_sub_field('');
+        // $ = get_sub_field('');
+        // $ = get_sub_field('');
+        // $ = get_sub_field('');
+
+    ?>
+
+    <?php
+
+      endif;
+    endwhile;
+
+  else :
+
+   // no layouts found
+
+  endif;
+
+?>
