@@ -123,6 +123,7 @@
     if( have_rows('pim_professional_application') ){
         $applicationsNew = '';
         $an = array();
+        $i=0;
         while ( have_rows('pim_professional_application') ){
             the_row(); $i++;
             $pim_professional_application_order = get_sub_field('pim_professional_application_order');
