@@ -239,7 +239,7 @@ a{
     @apply lg:min-h-[40vh] w-full flex flex-col-reverse lg:flex-row text-white justify-end relative;
 }
 .topPage > div.bg{
-    @apply bg-secondary absolute left-0 top-0 bottom-0 z-[1];
+    @apply bg-primary-dark absolute left-0 top-0 bottom-0 z-[1];
 }
 .topPage > div.image{
     @apply hidden lg:block bg-primary-dark lg:absolute lg:right-0 lg:top-0 lg:bottom-0 z-[1] bg-cover bg-center pb-[65%] lg:pb-0 w-full;
