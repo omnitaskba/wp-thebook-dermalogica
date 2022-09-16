@@ -15,8 +15,10 @@
 
     <div class="py-10 lg:py-20">
         <?php
-            if(isset($_GET['type']) && $_GET['type']==='professional'){
+            if(isset($_GET['type']) && $_GET['type']==='professional' && isset($product_system[0])){
                 echo '<a href="'.get_term_link($product_system[0]->term_id, 'product_system').'" class="text-secondary font-helvetica35">'.$product_system[0]->name.'</a> <i class="icon-chevron-right mx-3 text-xs"></i> <span class="text-primary-light font-helvetica75">'.get_the_title().'</span>';
+            }else{
+                echo '<a href="/" class="text-secondary font-helvetica35">homepage</a> <i class="icon-chevron-right mx-3 text-xs"></i> <span class="text-primary-light font-helvetica75">'.get_the_title().'</span>';
             }
         ?>
     </div>
@@ -25,11 +27,28 @@
     <div class="flex justify-between items-center flex-wrap">
 
         <div class="w-full md:w-2/5 mb-10 md:mb-0">
-            <a href="<?php echo wp_get_attachment_image_url($tID, 'max', ''); ?>" class="zoom">
             <?php
+
+                if(isset($_GET['type']) && $_GET['type']==='professional'){
+                    if( have_rows('pim_sizes', get_the_ID()) ){
+                        while ( have_rows('pim_sizes', get_the_ID()) ){
+                            the_row();
+                            if(get_sub_field('pim_sizes_type')==='Professional') {
+                                $img = get_sub_field('pim_sizes_image');
+                                if(isset($img['ID'])){
+                                    $tID = $img['ID'];
+                                    break;
+                                }
+                            }
+                        }
+                    }
+                }
+
                 if($tID){
+                    echo '<a href="'.wp_get_attachment_image_url($tID, 'max', '').'" class="zoom">';
                     echo wp_get_attachment_image($tID, 'large', '');
                 }else{
+                    echo '<a href="'.wp_get_attachment_image_url(1313, 'max', '').'" class="zoom">';
                     echo wp_get_attachment_image(1313, 'large', '', array( "style"=>"opacity:0.3;"));
                 }
             ?>

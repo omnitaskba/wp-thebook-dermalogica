@@ -1,4 +1,7 @@
 <?php
+
+    $fID = isset($args['fID']) ? $args['fID'] : 0;
+
     $tID = get_post_thumbnail_id(get_the_ID());
     $type = $fID==1295 ? 'professional' : 'retail';
 

@@ -37,6 +37,12 @@ function _assets() {
 	$template_url = get_template_directory_uri();
 
 	// Main JS script
+	wp_register_script('maginfic-script', 'https://cdnjs.cloudflare.com/ajax/libs/magnific-popup.js/1.1.0/jquery.magnific-popup.min.js', array('jquery'), '', true );
+	wp_enqueue_script('maginfic-script');
+	wp_register_style('maginfic-style', 'https://cdnjs.cloudflare.com/ajax/libs/magnific-popup.js/1.1.0/magnific-popup.min.css', '', '123');
+  	wp_enqueue_style('maginfic-style');
+
+	// Main JS script
 	wp_register_script('main-script', $template_url . '/scripts.js', array('jquery'), '', true );
 	wp_enqueue_script('main-script');
 	
@@ -140,28 +146,78 @@ function lockedContent($title, $accordion=true){
 		';
 	}else{
 		return '
-		    <div class="relative container text-center py-5" style="height:100%;display:flex;flex:1;">
-				<div class="locked">
-					<div style="height:100%;display:flex;flex:1;flex-direction:column;justify-content:center;align-items:center;">
-						<p>
-								Light-diffusing technology begins to balance the appearance of uneven pigmen- tation after one use, and continues working over time with potent Niacinamide and Hexylresor- cinol to help fade dark spots. Skin care powerhouse Shiitake Mushroom – rich in beta glucans – brightens skin, while adaptogenic Ashwagandha smoothes and delivers antioxidant benefits. Black Currant Oil and Peony Flower help boost skin’s natural luminosity. Skin-shielding actives help protect against pollution-induced dark spots.
-						</p>
-						<p>
-								Light-diffusing technology begins to balance the appearance of uneven pigmen- tation after one use, and continues working over time with potent Niacinamide and Hexylresor- cinol to help fade dark spots. Skin care powerhouse Shiitake Mushroom – rich in beta glucans – brightens skin, while adaptogenic Ashwagandha smoothes and delivers antioxidant benefits. Black Currant Oil and Peony Flower help boost skin’s natural luminosity. Skin-shielding actives help protect against pollution-induced dark spots.
-						</p>
-					</div>
-				</div>
-				<div class="lockedContent">
-                    <h3>For Professionals Only</h3>
-                    <p class="mt-2 mb-6">Please sign-in or create an acccount to view this information.</p>
-                    <div class="flex justify-center items-center gap-4">
-                        <a href="'.do_shortcode('[openid_connect_generic_auth_url]').'" class="button secondary rounded-full">sign in</a>
-                        <a href="'.do_shortcode('[openid_connect_generic_auth_url]').'" class="button outline secondary rounded-full">create account</a>
+            <div class="w-full h-[160px] bg-primary-dark">
+                <div class="bg"></div>
+            </div>
+            <div class="relative flex flex-1 h-full justify-center items-center">
+                <div class="container text-center py-5">
+                    <div class="locked">
+                        <div>
+                            <p>
+                                    Light-diffusing technology begins to balance the appearance of uneven pigmen- tation after one use, and continues working over time with potent Niacinamide and Hexylresor- cinol to help fade dark spots. Skin care powerhouse Shiitake Mushroom – rich in beta glucans – brightens skin, while adaptogenic Ashwagandha smoothes and delivers antioxidant benefits. Black Currant Oil and Peony Flower help boost skin’s natural luminosity. Skin-shielding actives help protect against pollution-induced dark spots.
+                            </p>
+                            <p>
+                                    Light-diffusing technology begins to balance the appearance of uneven pigmen- tation after one use, and continues working over time with potent Niacinamide and Hexylresor- cinol to help fade dark spots. Skin care powerhouse Shiitake Mushroom – rich in beta glucans – brightens skin, while adaptogenic Ashwagandha smoothes and delivers antioxidant benefits. Black Currant Oil and Peony Flower help boost skin’s natural luminosity. Skin-shielding actives help protect against pollution-induced dark spots.
+                            </p>
+                        </div>
+                        <div class="lockedContent">
+                            <h3>For Professionals Only</h3>
+                            <p class="mt-2 mb-6">Please sign-in or create an acccount to view this information.</p>
+                            <div class="flex justify-center items-center gap-4">
+                                <a href="'.do_shortcode('[openid_connect_generic_auth_url]').'" class="button secondary rounded-full">sign in</a>
+                                <a href="'.do_shortcode('[openid_connect_generic_auth_url]').'" class="button outline secondary rounded-full">create account</a>
+                            </div>
+                        </div>
                     </div>
-				</div>
+                </div>
 		    </div>
 		';
 	}
+}
+
+
+// 
+// 
+add_filter('wpcf7_form_elements', function($content) {
+    $content = preg_replace('/<(span).*?class="\s*(?:.*\s)?wpcf7-form-control-wrap(?:\s[^"]+)?\s*"[^\>]*>(.*)<\/\1>/i', '\2', $content);
+
+    return $content;
+});
+
+
+// 
+// Disable SSL verify
+add_filter('https_ssl_verify', '__return_false');
+
+
+// 
+// 
+add_filter('acf/settings/save_json', 'my_acf_json_save_point');
+function my_acf_json_save_point( $path ) {
+
+    // update path
+    $path = get_stylesheet_directory() . '/ACF';
+
+    // return
+    return $path;
+
+}
+
+
+//
+// 
+add_filter('acf/settings/load_json', 'my_acf_json_load_point');
+function my_acf_json_load_point( $paths ) {
+
+    // remove original path (optional)
+    unset($paths[0]);
+
+    // append path
+    $paths[] = get_stylesheet_directory() . '/ACF';
+
+    // return
+    return $paths;
+
 }
 
 

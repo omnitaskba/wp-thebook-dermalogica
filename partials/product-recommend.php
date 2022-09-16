@@ -51,7 +51,7 @@
 <?php if(count($prescribedItem)>0 || count($recommendedItem)>0){ ?>
 <div class="productArchive my-10 lg:my-20">
     <div class="grid grid-cols-1 md:grid-cols-3 search-filter-results">
-        <div class="border-t-[1px] border-l-[1px] border-primary-light border-opacity-25 flex flex-1 flex-col">
+        <div class="flex flex-1 flex-col">
             <div style="background-image:url('<?php echo get_stylesheet_directory_uri(); ?>/images/image2.jpg');" class="flex flex-1 bg-center bg-cover min-h-[240px]"></div>
             <div class="bg-primary-dark text-white p-6 text-center font-helvetica75">
                 retail this product with: 

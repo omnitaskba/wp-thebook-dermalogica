@@ -114,6 +114,11 @@ h3{
 }
 
 
+a{
+    @apply hover:text-secondary focus:text-secondary focus:opacity-90;
+}
+
+
 .container{
     @apply max-w-7xl px-4 mx-auto w-full;
 }
@@ -167,7 +172,7 @@ h3{
     @apply text-primary-dark font-bold text-2xl font-helvetica75;
 }
 .mainNavigation > div .close{
-    @apply text-xs flex justify-center items-center gap-2 border-[1px] border-primary-dark text-primary-dark rounded-full w-14 h-14;
+    @apply text-xs flex justify-center items-center gap-2 border-[1px] border-primary-dark text-primary-dark rounded-full w-14 h-14 hover:text-secondary hover:border-secondary;
 }
 .mainNavigation > div > ul.menu{
     @apply flex flex-col gap-1 md:gap-2;
@@ -213,10 +218,10 @@ h3{
 
 /* buttons */
 .button{
-    @apply bg-primary-dark hover:bg-primary-light text-white transition-all ease-in-out h-12 flex justify-center items-center px-8;
+    @apply bg-primary-dark hover:bg-primary-light text-white transition-all ease-in-out h-12 flex justify-center items-center px-8 hover:text-white;
 }
 .button.secondary{
-    @apply bg-secondary hover:bg-secondary hover:bg-opacity-75;
+    @apply hover:text-white bg-secondary hover:bg-secondary hover:bg-opacity-75;
 }
 .button.outline.secondary{
     @apply bg-white hover:bg-secondary hover:bg-opacity-100 border-2 border-secondary text-secondary outline-none hover:text-white;
@@ -262,6 +267,9 @@ h3{
 }
 .productArchive .item img{
     @apply max-h-[300px] w-auto mx-auto;
+}
+.productArchive .item:hover img{
+    @apply opacity-90;
 }
 .productArchive .item .title{
     @apply text-[15px] lg:text-[20px] leading-[18px] leading-[24px] font-helvetica45 block text-center mt-4;
@@ -376,23 +384,10 @@ h3{
     @apply h-auto pt-6 pb-2 overflow-visible opacity-100 scale-y-100;
 }
 .orderItem{
-    padding-left: 34px;
-    position: relative;
+    @apply relative pl-[34px] my-2;
 }
 .orderItem .num{
-    position: absolute;
-    top:0;
-    left:0;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    width: 24px;
-    height: 24px;
-    border-radius: 50%;
-    background: #545e67;
-    color:#fff;
-    font-size: 14px;
-    text-align: center;
+    @apply absolute top-0 left-0 flex justify-center items-center w-6 h-6 rounded-full bg-primary-dark text-white text-sm text-center;
 }
 .accordions .item .content ul{
     @apply list-disc ml-5;

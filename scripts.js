@@ -139,6 +139,10 @@
             scrollTop: $(_div).offset().top - 30
         }, 2000);
     });
+
+
+    // 
+    $('.zoom').magnificPopup({type:'image'})
   
   
   })(jQuery, this);
