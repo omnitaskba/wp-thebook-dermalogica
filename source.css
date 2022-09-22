@@ -203,6 +203,17 @@ a{
 }
 
 
+/* vimeoVideo */
+.admin-bar .vimeoVideo{
+    @apply absolute inset-0 w-full min-h-[82vh] h-[82vh] z-[0];
+}
+.vimeoVideo{
+    @apply fixed inset-0 w-full min-h-[82vh] h-[82vh] z-[0];
+}
+.vimeoVideo iframe{
+    @apply w-[100vw] h-[56.25vw] top-[50%] left-[50%] min-h-[100vh] min-w-[177.77vh] absolute -translate-x-[50%] -translate-y-[50%];
+}
+
 /* footer */
 .footer{
     @apply bg-primary-dark text-white py-10 w-full min-h-[120px];
