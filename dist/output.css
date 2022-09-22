@@ -1179,6 +1179,16 @@ h5{
   }
 }
 
+.homepage h1{
+  font-size:32px;
+}
+
+@media (min-width: 1024px){
+  .homepage h1{
+    font-size:54px;
+  }
+}
+
 a:hover{
   --tw-text-opacity:1;
   color:rgb(94 147 219 / var(--tw-text-opacity));
@@ -1476,9 +1486,16 @@ a:focus{
   bottom:0px;
   left:0px;
   z-index:0;
+  display:none;
   height:82vh;
   min-height:82vh;
   width:100%;
+}
+
+@media (min-width: 1024px){
+  .vimeoVideo{
+    display:block;
+  }
 }
 
 .vimeoVideo iframe{

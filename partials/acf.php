@@ -58,7 +58,7 @@ if( have_rows('flexible_content') ):
       <div class="vimeoVideo"> 
       <iframe src="https://player.vimeo.com/video/750561348?h=fff8d18180&background=1" width="100%" height="564" frameborder="0" allow="autoplay; fullscreen; background" allowfullscreen></iframe>
       </div>
-    <div class="container realtive z-[1]">
+    <div class="container realtive z-[1] homepage">
       <div class="w-full max-w-2xl mx-auto">
             <?php 
                 if($home_title != ''){
