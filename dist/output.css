@@ -1457,9 +1457,16 @@ a:focus{
   bottom:0px;
   left:0px;
   z-index:0;
+  display:none;
   height:82vh;
   min-height:82vh;
   width:100%;
+}
+
+@media (min-width: 1024px){
+  .admin-bar .vimeoVideo{
+    display:block;
+  }
 }
 
 .vimeoVideo{

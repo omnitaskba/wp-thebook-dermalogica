@@ -205,7 +205,7 @@ a{
 
 /* vimeoVideo */
 .admin-bar .vimeoVideo{
-    @apply absolute inset-0 w-full min-h-[82vh] h-[82vh] z-[0];
+    @apply hidden lg:block absolute inset-0 w-full min-h-[82vh] h-[82vh] z-[0];
 }
 .vimeoVideo{
     @apply fixed inset-0 w-full min-h-[82vh] h-[82vh] z-[0];
