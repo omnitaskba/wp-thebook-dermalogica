@@ -500,7 +500,7 @@ div.asp_w.ajaxsearchpro.asp_non_compact#ajaxsearchpro2_1{
     @apply bg-grayCustom flex flex-wrap md:flex-nowrap justify-between items-center my-10 relative;
 }
 .new_product > .content{
-    @apply pl-10 md:pl-20 lg:pl-32 min-w-full md:min-w-[50%] pt-20 lg:pt-0;
+    @apply pl-10 md:pl-20 lg:pl-32 pr-10 min-w-full md:min-w-[50%] pt-20 lg:pt-0;
 }
 .new_product > img{
     @apply w-full md:w-1/2 h-full;
