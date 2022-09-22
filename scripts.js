@@ -121,6 +121,37 @@
 
 
     // 
+    $('.tabs > ul').on('click','a',function(e){
+        e.preventDefault()
+        let _el = $(this);
+        let _div = $(this).attr('href');
+        console.log('clicked')
+        if(_el.hasClass('active')===true){}else{
+            $('.tabs > ul > li > a').removeClass('active');
+            $('.tabs > .content').removeClass('active');
+            _el.addClass('active');
+            $('.tabs > .content'+_div).addClass('active');
+        }
+    })
+
+
+
+    // 
+    $('.packageSwitch').on('click','a',function(e){
+        e.preventDefault()
+        let _el = $(this);
+        let _id = $(this).data('id');
+        if(_el.hasClass('active')===true){}else{
+            _el.parent().find('a').removeClass('active');
+            _el.addClass('active');
+            $('.packageSwitchContent').addClass('hidden')
+            $('.packageSwitchContent.'+_id).removeClass('hidden').addClass('block')
+        }
+    })
+
+
+
+    // 
     $('.accordions').on('click','a.title',function(e){
         e.preventDefault()
         let _el = $(this).parent();

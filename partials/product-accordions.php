@@ -8,7 +8,7 @@
 
     // 
     if(get_field('pim_how_to_use') != ''){
-        $accordions [1]= array('How to Use', get_field('pim_how_to_use'));
+        $accordions [2]= array('How to Use', get_field('pim_how_to_use'));
     }
 
 
@@ -19,7 +19,7 @@
             the_row();
             $benefitsNew .= '<li>'.get_sub_field('pim_benefit').'</li>';
         }
-        $accordions [2]= array('Benefits', $benefitsNew);
+        $accordions [1]= array('Benefits', $benefitsNew);
     }
 
 

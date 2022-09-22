@@ -695,6 +695,35 @@
                     ],
                     "min": "",
                     "max": ""
+                },
+                "layout_632c67b9e4d34": {
+                    "key": "layout_632c67b9e4d34",
+                    "name": "default_content",
+                    "label": "Default content",
+                    "display": "block",
+                    "sub_fields": [
+                        {
+                            "key": "field_632c67c2e4d35",
+                            "label": "Content",
+                            "name": "dc_content",
+                            "type": "wysiwyg",
+                            "instructions": "",
+                            "required": 0,
+                            "conditional_logic": 0,
+                            "wrapper": {
+                                "width": "",
+                                "class": "",
+                                "id": ""
+                            },
+                            "default_value": "",
+                            "tabs": "all",
+                            "toolbar": "full",
+                            "media_upload": 1,
+                            "delay": 0
+                        }
+                    ],
+                    "min": "",
+                    "max": ""
                 }
             },
             "button_label": "Add Row",
@@ -731,5 +760,5 @@
     ],
     "active": true,
     "description": "",
-    "modified": 1663337046
+    "modified": 1663854563
 }

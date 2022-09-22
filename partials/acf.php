@@ -122,7 +122,7 @@ if( have_rows('flexible_content') ):
 
         if( have_rows('accordions_items') ){
           $i=0;
-          echo '<div class="container"><div class="accordion">';
+          echo '<div class="container"><div class="accordions">';
           while ( have_rows('accordions_items') ){
             the_row(); $i++;
 
@@ -130,9 +130,15 @@ if( have_rows('flexible_content') ):
             $accordions_i_content = get_sub_field('accordions_i_content');
 
             echo '
-            <div>
-              <a href="#" class="accordion-title">'.$accordions_i_title.' <span><i class="icon-chevron-down"></i></span></a>
-              <div class="accordion-content">
+            <div class="item">
+              <a href="#" class="title">
+                <span>'.$accordions_i_title.'</span>
+                <div>
+                  <i class="icon-plus"></i>
+                  <i class="icon-minus"></i>
+                </div>
+              </a>
+              <div class="content">
                 '.$accordions_i_content.'
               </div>
             </div>
@@ -282,33 +288,38 @@ if( have_rows('flexible_content') ):
 
     <?php
 
-      elseif( get_row_layout() == '' ):
+      elseif( get_row_layout() == 'new_product' ):
 
-        // $ = get_sub_field('');
-        // $ = get_sub_field('');
-        // $ = get_sub_field('');
-        // $ = get_sub_field('');
-        // $ = get_sub_field('');
-        // $ = get_sub_field('');
-        // $ = get_sub_field('');
-        // $ = get_sub_field('');
+        $np_image = get_sub_field('np_image');
+        $np_overtitle = get_sub_field('np_overtitle');
+        $np_title = get_sub_field('np_title');
+        $np_subtitle = get_sub_field('np_subtitle');
+        $nop_link = get_sub_field('nop_link');
+        $np_badge_text = get_sub_field('np_badge_text');
+        $np_badge_color = get_sub_field('np_badge_color');
 
     ?>
+    <div class="container">
+      <div class="new_product">
+        <div class="content">
+          <?php if($np_overtitle != ''){ echo '<h5>'.$np_overtitle.'</h5>'; } ?>
+          <?php if($np_title != ''){ echo '<h2 class="font-helvetica75">'.$np_title.'</h2>'; } ?>
+          <?php if($np_subtitle != ''){ echo '<h3 class="font-helvetica35 mb-10">'.$np_subtitle.'</h3>'; } ?>
+          <?php if($nop_link){ echo '<a href="'.$nop_link['url'].'" '.($nop_link['target']=='_blank' ? 'target="_blank"' : '').' class="font-helvetica75 uppercase text-xs tracking-widest underline underline-offset-8">'.$nop_link['title'].'</a>'; } ?>
+        </div>
+        <?php echo wp_get_attachment_image($np_image['ID'], 'large', ''); ?>
+          <?php if($np_badge_text != ''){ echo '<div class="badge" style="background-color:'.$np_badge_color.';">'.$np_badge_text.'</div>'; } ?>
+      </div>
+    </div>
 
     <?php
 
-      elseif( get_row_layout() == '' ):
+      elseif( get_row_layout() == 'default_content' ):
 
-        // $ = get_sub_field('');
-        // $ = get_sub_field('');
-        // $ = get_sub_field('');
-        // $ = get_sub_field('');
-        // $ = get_sub_field('');
-        // $ = get_sub_field('');
-        // $ = get_sub_field('');
-        // $ = get_sub_field('');
+        $dc_content = get_sub_field('dc_content');
 
     ?>
+    <div class="container innerContent"><?php echo $dc_content; ?></div>
 
     <?php
 

@@ -22,7 +22,8 @@ module.exports = {
         secondary:{
           DEFAULT:'#5E93DB',
           light:'#F2F5FA'
-        }
+        },
+        grayCustom:' #f1f1f1'
       },
       fontSize:{
           xxs:'11px'
