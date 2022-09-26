@@ -54,7 +54,6 @@ if( have_rows('flexible_content') ):
 
     ?>
     <div style="background-image:url('<?php echo get_stylesheet_directory_uri(); ?>/images/image1.jpg');" class="homeBlock">
-    <!-- <iframe src="https://player.vimeo.com/video/750100249/5a02f40cfd?background=1" width="640" height="360" frameborder="0" allow="autoplay; fullscreen" allowfullscreen></iframe> -->
       <div class="vimeoVideo"> 
       <iframe src="https://player.vimeo.com/video/750561348?h=fff8d18180&background=1" width="100%" height="564" frameborder="0" allow="autoplay; fullscreen; background" allowfullscreen></iframe>
       </div>
