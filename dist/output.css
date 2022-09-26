@@ -1480,7 +1480,7 @@ a:focus{
 }
 
 .vimeoVideo{
-  position:fixed;
+  position:absolute;
   top:0px;
   right:0px;
   bottom:0px;
@@ -1488,8 +1488,9 @@ a:focus{
   z-index:0;
   display:none;
   height:82vh;
-  min-height:82vh;
+  min-height:100%;
   width:100%;
+  overflow:hidden;
 }
 
 @media (min-width: 1024px){
