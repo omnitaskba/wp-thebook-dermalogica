@@ -12,9 +12,7 @@
                     <div class="item last:rounded-r-md  w-1/2 md:w-1/3 max-w-[50%] md:max-w-[33.333%] ">
                         <a href="'.get_the_permalink($rp->ID).'">
                         '.wp_get_attachment_image($tRPID, 'medium', '', array( "object-fit" => "contain" )).'
-                            <div class="flex justify-center items-center">
-                                <div class="button secondary rounded-lg">'.get_the_title($rp->ID).'</div>
-                            </div>
+                            <div class="flex justify-center items-center text-center mt-4">'.get_the_title($rp->ID).'</div>
                         </a>
                     </div>
                 ';
@@ -35,9 +33,7 @@
                     <div class="border-[1px] border-primary-light border-opacity-10 w-1/2 md:w-1/3 max-w-[50%] md:max-w-[33.333%]">
                         <a href="'.get_the_permalink($rp->ID).'">
                         '.wp_get_attachment_image($tRPID, 'medium', '', array( "object-fit" => "contain" )).'
-                        <div class="flex justify-center items-center">
-                            <div class="button secondary rounded-lg">'.get_the_title($rp->ID).'</div>
-                        </div>
+                        <div class="flex justify-center items-center text-center mt-4">'.get_the_title($rp->ID).'</div>
                         </a>
                     </div>
                 ';
