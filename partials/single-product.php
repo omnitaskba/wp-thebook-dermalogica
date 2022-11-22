@@ -42,6 +42,7 @@
         <div class="w-full md:w-2/5 mb-10 md:mb-0">
             <?php
 
+                $tIDpro = null;
                 if(isset($_GET['type']) && $_GET['type']==='professional'){
                     if( have_rows('pim_sizes', get_the_ID()) ){
                         while ( have_rows('pim_sizes', get_the_ID()) ){
@@ -49,7 +50,7 @@
                             if(get_sub_field('pim_sizes_type')==='Professional') {
                                 $img = get_sub_field('pim_sizes_image');
                                 if(isset($img['ID'])){
-                                    $tID = $img['ID'];
+                                    $tIDpro = $img['ID'];
                                     break;
                                 }
                             }
@@ -57,15 +58,24 @@
                     }
                 }
 
-                if($tID){
-                    echo '<a href="'.wp_get_attachment_image_url($tID, 'max', '').'" class="zoom hidden lg:block">';
-                    echo wp_get_attachment_image($tID, 'large', '');
+                if($tID || $tIDpro){
+                    if($tID){
+                        echo '<a href="'.wp_get_attachment_image_url($tID, 'max', '').'" class="zoom hidden-m img-retail" '.($tIDpro ? 'style="display:none"' : '').'>';
+                        echo wp_get_attachment_image($tID, 'large', '');
+                        echo '</a>';
+                    }
+                    if($tIDpro){
+                        echo '<a href="'.wp_get_attachment_image_url($tIDpro, 'max', '').'" class="zoom hidden-m img-professional">';
+                        echo wp_get_attachment_image($tIDpro, 'large', '');
+                        echo '</a>';
+                    }
                 }else{
-                    echo '<a href="'.wp_get_attachment_image_url(1313, 'max', '').'" class="zoom hidden lg:block">';
+                    echo '<a href="'.wp_get_attachment_image_url(1313, 'max', '').'" class="zoom hidden-m">';
                     echo wp_get_attachment_image(1313, 'large', '', array( "style"=>"opacity:0.3;"));
+                    echo '</a>';
                 }
             ?>
-            </a>
+            
         </div>
 
         <div class="w-full md:w-3/5">
@@ -73,7 +83,7 @@
                 if($product_type){
                     $types = array();
                     foreach ($product_type as $tp) {
-                        $types []= $tp->name;
+                        $types []= '<a href="#" class="switch-from-'.$tp->slug.'">'.$tp->name.'</a>';
                     }
                     echo '<p class="uppercase text-xs tracking-[0.25em] font-helvetica75">'.implode(' | ', $types).'</p>';
                 }
@@ -82,15 +92,23 @@
             <?php if($pim_subtitle != ''){ ?><p class="font-helvetica75 text-[20px]"><?php echo $pim_subtitle; ?></p><?php } ?>
             
             <?php 
-                if($tID){
-                    echo '<a href="'.wp_get_attachment_image_url($tID, 'max', '').'" class="zoom block lg:hidden mt-10">';
-                    echo wp_get_attachment_image($tID, 'large', '');
+                if($tID || $tIDpro){
+                    if($tID){
+                        echo '<a href="'.wp_get_attachment_image_url($tID, 'max', '').'" class="zoom hidden-d img-retail" '.($tIDpro ? 'style="display:none"' : '').'>';
+                        echo wp_get_attachment_image($tID, 'large', '');
+                        echo '</a>';
+                    }
+                    if($tIDpro){
+                        echo '<a href="'.wp_get_attachment_image_url($tIDpro, 'max', '').'" class="zoom hidden-d img-professional">';
+                        echo wp_get_attachment_image($tIDpro, 'large', '');
+                        echo '</a>';
+                    }
                 }else{
-                    echo '<a href="'.wp_get_attachment_image_url(1313, 'max', '').'" class="zoom block lg:hidden mt-10">';
+                    echo '<a href="'.wp_get_attachment_image_url(1313, 'max', '').'" class="zoom hidden-d mt-10">';
                     echo wp_get_attachment_image(1313, 'large', '', array( "style"=>"opacity:0.3;"));
+                    echo '</a>';
                 }
             ?>
-            </a>
             
             <div class="tabs">
                 <ul>

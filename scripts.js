@@ -174,6 +174,19 @@
 
     // 
     $('.zoom').magnificPopup({type:'image'})
+
+
+    // 
+    $('.switch-from-retail').on('click',function(e){
+        e.preventDefault()
+        $('a.img-professional').hide()
+        $('a.img-retail').show()
+    })
+    $('.switch-from-professional').on('click',function(e){
+        e.preventDefault()
+        $('a.img-professional').show()
+        $('a.img-retail').hide()
+    })
   
   
   })(jQuery, this);

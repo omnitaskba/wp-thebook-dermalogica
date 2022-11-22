@@ -210,7 +210,7 @@ a{
 
 /* vimeoVideo */
 .admin-bar .vimeoVideo{
-    @apply hidden lg:block absolute inset-0 w-full min-h-[82vh] h-[82vh] z-[0];
+    @apply hidden lg:block absolute inset-0 w-full min-h-full h-[82vh] z-[0];
 }
 .vimeoVideo{
     @apply hidden lg:block absolute inset-0 w-full min-h-full h-[82vh] z-[0] overflow-hidden bg-black;
@@ -523,4 +523,18 @@ div.asp_w.ajaxsearchpro.asp_non_compact#ajaxsearchpro2_1{
 }
 .new_product > .badge{
     @apply absolute top-6 lg:top-14 right-6 lg:right-14 py-3 px-8 text-white text-sm lg:text-base font-helvetica55 rounded-full tracking-widest;
+}
+
+
+@media(max-width:991px){
+    .hidden-m.img-retail,
+    .hidden-m.img-professional{
+        display: none !important;
+    }
+}
+@media(min-width:992px){
+    .hidden-d.img-retail,
+    .hidden-d.img-professional{
+        display: none !important;
+    }
 }

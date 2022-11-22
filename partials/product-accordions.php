@@ -81,22 +81,18 @@
 
     //
     if( have_rows('pim_ingredients') ){
-		if(is_user_logged_in()) {
-			$pim_ingredients = '';
-            while ( have_rows('pim_ingredients') ){
-                the_row();
-                $value = get_sub_field('pim_ingredient_section_content');
-                $type = get_sub_field('pim_ingridients_type');
+		$pim_ingredients = '';
+        while ( have_rows('pim_ingredients') ){
+            the_row();
+            $value = get_sub_field('pim_ingredient_section_content');
+            $type = get_sub_field('pim_ingridients_type');
 
-                $title = '';
-                if($type != 'default'){
-                    $title = '<strong class="bold">'.$type.'</strong><br/>';
-                }
-
-                $pim_ingredients .= '<p>'.$title.$value.'</p>';
+            $title = '';
+            if($type != 'default'){
+                $title = '<strong class="bold">'.$type.'</strong><br/>';
             }
-        } else{
-            $pim_ingredients = lockedContent('Ingredients');
+
+            $pim_ingredients .= '<p>'.$title.$value.'</p>';
         }
         $accordions [13]= array('Ingredients', $pim_ingredients);
     }

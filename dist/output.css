@@ -1465,7 +1465,7 @@ a:focus{
   z-index:0;
   display:none;
   height:82vh;
-  min-height:82vh;
+  min-height:100%;
   width:100%;
 }
 
@@ -2451,6 +2451,20 @@ div.asp_w.ajaxsearchpro.asp_non_compact#ajaxsearchpro2_1{
     right:3.5rem;
     font-size:1rem;
     line-height:1.5rem;
+  }
+}
+
+@media(max-width:991px){
+  .hidden-m.img-retail,
+    .hidden-m.img-professional{
+    display: none !important;
+  }
+}
+
+@media(min-width:992px){
+  .hidden-d.img-retail,
+    .hidden-d.img-professional{
+    display: none !important;
   }
 }
 
