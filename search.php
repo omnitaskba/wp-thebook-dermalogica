@@ -33,7 +33,7 @@
             ?>
             </div>
 
-            <?php echo _pagination('page-pagination', $query); ?>
+            <?php echo _pagination('page-pagination'); ?>
         </div>
     </div>
 </div>

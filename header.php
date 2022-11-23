@@ -11,7 +11,10 @@
     <header class="header">
         <div class="container flex justify-between items-center w-full">
             
-            <a href="/" class="logo">the book</a>
+            <!-- <a href="/" class="logo">the book</a> -->
+            <a href="/" class="logoPro">
+            <img src="<?php echo get_stylesheet_directory_uri(); ?>/images/logo-white.svg" alt=""/>
+        </a>
 
             <div class="navContainer">
                 <a href="#" class="open">

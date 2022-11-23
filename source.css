@@ -538,3 +538,24 @@ div.asp_w.ajaxsearchpro.asp_non_compact#ajaxsearchpro2_1{
         display: none !important;
     }
 }
+
+
+
+.professional_service_block p{
+    @apply font-helvetica35 mb-4;
+}
+.professional_service_block p:last-child{
+    @apply mb-0;
+}
+.professional_service_block ul{
+    @apply pl-5 list-disc mb-5 font-helvetica35;
+}
+.professional_service_block strong{
+    @apply font-helvetica75;
+}
+.professional_service_block hr{
+    @apply my-6;
+}
+.professional_service_block h4{
+    @apply text-lg font-helvetica75;
+}

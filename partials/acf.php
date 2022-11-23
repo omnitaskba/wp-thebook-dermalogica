@@ -325,18 +325,107 @@ if( have_rows('flexible_content') ):
 
     <?php
 
-      elseif( get_row_layout() == '' ):
+      elseif( get_row_layout() == 'professional_service_block' ):
 
-        // $ = get_sub_field('');
-        // $ = get_sub_field('');
-        // $ = get_sub_field('');
-        // $ = get_sub_field('');
-        // $ = get_sub_field('');
-        // $ = get_sub_field('');
-        // $ = get_sub_field('');
-        // $ = get_sub_field('');
+        $tID = get_post_thumbnail_id(get_the_ID());
 
     ?>
+    <div class="container mb-10">
+      <div class="flex flex-col lg:flex-row items-start professional_service_block">
+
+        <div class="w-full lg:w-1/4 lg:pr-10">
+          <div class="flex flex-col gap-6 justify-between items-start bg-primary-light text-white rounded-lg overflow-hidden">
+            <div class="p-6">
+              <?php
+                if( have_rows('psb_left_column') ){
+                  $i=0;
+                  while ( have_rows('psb_left_column') ){
+                    the_row(); $i++;
+                
+                    $psb_lc_type = get_sub_field('psb_lc_type');
+                    $psb_lc_maintitle = get_sub_field('psb_lc_maintitle');
+
+                    if($psb_lc_type=='repeater'){
+                      if( have_rows('psb_lc_repeater') ){
+                        $i=0;
+                        while ( have_rows('psb_lc_repeater') ){
+                          the_row(); $i++;
+                      
+                          $psb_lc_title = get_sub_field('psb_lc_title');
+                          $psb_lc_content = get_sub_field('psb_lc_content');
+                      
+                          echo '<div class="pb-4">
+                          <p><strong>'.$psb_lc_title.'</strong></p>
+                          '.$psb_lc_content.'
+                          </div>';
+                        }
+                      }
+                    }
+
+
+                    if($psb_lc_type=='title'){
+                      echo '<h4>'.$psb_lc_maintitle.'</h4>';
+                    }
+
+
+                    if($psb_lc_type=='title'){
+                      echo '<hr/>';
+                    }
+                
+                  }
+                }
+              ?>
+            </div>
+            <div class="bg-primary-dark">
+              <?php echo wp_get_attachment_image($tID, 'large', ''); ?>
+            </div>
+          </div>
+        </div>
+
+        <div class="w-full lg:w-3/4 mt-10 lg:mt-0">
+          <?php
+              if( have_rows('psb_right_column') ){
+                $i=0;
+                while ( have_rows('psb_right_column') ){
+                  the_row(); $i++;
+              
+                  $psb_rc_type = get_sub_field('psb_rc_type');
+                  $psb_rc_maintitle = get_sub_field('psb_rc_maintitle');
+
+                  if($psb_rc_type=='repeater'){
+                    if( have_rows('psb_rc_repeater') ){
+                      $i=0;
+                      while ( have_rows('psb_rc_repeater') ){
+                        the_row(); $i++;
+                    
+                        $psb_rc_title = get_sub_field('psb_rc_title');
+                        $psb_rc_content = get_sub_field('psb_rc_content');
+                    
+                        echo '<div class="pb-4">
+                        <p><strong>'.$psb_rc_title.'</strong></p>
+                        '.$psb_rc_content.'
+                        </div>';
+                      }
+                    }
+                  }
+
+
+                  if($psb_rc_type=='title'){
+                    echo '<h4>'.$psb_rc_maintitle.'</h4>';
+                  }
+
+
+                  if($psb_rc_type=='title'){
+                    echo '<hr/>';
+                  }
+              
+                }
+              }
+            ?>
+        </div>
+
+      </div>
+    </div>
 
     <?php
 
