@@ -800,7 +800,7 @@
                                     "collapsed": "",
                                     "min": 0,
                                     "max": 0,
-                                    "layout": "",
+                                    "layout": "block",
                                     "button_label": "",
                                     "sub_fields": [
                                         {
@@ -1059,5 +1059,5 @@
     ],
     "active": true,
     "description": "",
-    "modified": 1669213517
+    "modified": 1669216341
 }
