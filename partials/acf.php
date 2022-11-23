@@ -328,6 +328,8 @@ if( have_rows('flexible_content') ):
       elseif( get_row_layout() == 'professional_service_block' ):
 
         $tID = get_post_thumbnail_id(get_the_ID());
+        $psb_download_title = get_sub_field('psb_download_title');
+        $psb_download_file = get_sub_field('psb_download_file');
 
     ?>
     <div class="container mb-10">
@@ -380,6 +382,12 @@ if( have_rows('flexible_content') ):
               <?php echo wp_get_attachment_image($tID, 'large', ''); ?>
             </div>
           </div>
+          <?php if($psb_download_file){ ?>
+            <div class="my-6 text-right">
+              <?php if($psb_download_title != ''){ echo '<h3 class="font-helvetica35">'.$psb_download_title.'</h3>'; } ?>
+              <a href="<?php echo $psb_download_file; ?>" class="font-helvetica75">download &rarr;</a>
+            </div>
+          <?php } ?>
         </div>
 
         <div class="w-full lg:w-3/4 mt-10 lg:mt-0">
