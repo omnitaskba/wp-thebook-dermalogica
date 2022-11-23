@@ -364,11 +364,11 @@ if( have_rows('flexible_content') ):
 
 
                     if($psb_lc_type=='title'){
-                      echo '<h4>'.$psb_lc_maintitle.'</h4>';
+                      echo '<h4 class="mb-4">'.$psb_lc_maintitle.'</h4>';
                     }
 
 
-                    if($psb_lc_type=='title'){
+                    if($psb_lc_type=='line'){
                       echo '<hr/>';
                     }
                 
@@ -411,11 +411,11 @@ if( have_rows('flexible_content') ):
 
 
                   if($psb_rc_type=='title'){
-                    echo '<h4>'.$psb_rc_maintitle.'</h4>';
+                    echo '<h4 class="mb-4">'.$psb_rc_maintitle.'</h4>';
                   }
 
 
-                  if($psb_rc_type=='title'){
+                  if($psb_rc_type=='line'){
                     echo '<hr/>';
                   }
               
