@@ -509,7 +509,7 @@ if( have_rows('flexible_content') ):
               echo '
                 <div class="bg-white shadow-lg relative flex flex-row justify-between">
                   '.($ch_i_button ? 
-                    '<a href="'.$ch_i_buttonch_i_button['url'].'" style="background-image:url('.$ch_i_image['sizes']['large'].');" class="w-full block aspect-square bg-cover bg-center"'.($ch_i_button['target']=='_blank' ? 'targret="_blank"' : '').'></a>'
+                    '<a href="'.$ch_i_button['url'].'" style="background-image:url('.$ch_i_image['sizes']['large'].');" class="w-full block aspect-square bg-cover bg-center"'.($ch_i_button['target']=='_blank' ? 'targret="_blank"' : '').'></a>'
                     :
                     '<div style="background-image:url('.$ch_i_image['sizes']['large'].');" class="w-full block aspect-square bg-cover bg-center"></div>'
                   ).'
