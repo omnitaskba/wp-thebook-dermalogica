@@ -7,9 +7,11 @@
     <div class="container">
         <h4>Search results for:</h4>
         <h2>"<?php echo @$_GET['s']; ?>"</h2>
+        <?php /*
         <a href="/" class="mt-2 logoPro">
             <img src="<?php echo get_stylesheet_directory_uri(); ?>/images/logo-white.svg" alt=""/>
         </a>
+        */ ?>
     </div>
 </div>
 

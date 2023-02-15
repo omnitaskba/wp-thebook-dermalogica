@@ -112,6 +112,9 @@ h2{
 h3{
     @apply text-[22px] lg:text-[28px] font-helvetica75 leading-[30px] lg:leading-[36px];
 }
+h4{
+    @apply text-[18px] lg:text-[22px] font-helvetica75 leading-[24px] lg:leading-[30px];
+}
 h5{
     @apply text-[18px] lg:text-[18px] font-helvetica75 leading-[22px] lg:leading-[22px];
 }
@@ -135,7 +138,7 @@ a{
 }
 
 .logoPro{
-    @apply max-w-[170px] lg:max-w-[210px];
+    @apply max-w-[170px] lg:max-w-[210px] w-full;
 }
 
 
@@ -221,7 +224,7 @@ a{
 
 /* footer */
 .footer{
-    @apply bg-primary-dark text-white py-10 w-full min-h-[120px];
+    @apply bg-primary-dark text-white py-5 w-full min-h-[70px];
 }
 .footer ul.menu{
     @apply flex flex-row justify-end items-center gap-2 mt-4 lg:mt-0;

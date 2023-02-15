@@ -6,9 +6,11 @@
     <!-- <div style="background-image:url('<?php echo $toppage_image['sizes']['max']; ?>')" class="image"></div> -->
     <div class="container">
         <h2><?php echo get_the_archive_title(); ?></h2>
+        <?php /*
         <a href="/" class="mt-2 logoPro">
             <img src="<?php echo get_stylesheet_directory_uri(); ?>/images/logo-white.svg" alt=""/>
         </a>
+        */ ?>
     </div>
 </div>
 

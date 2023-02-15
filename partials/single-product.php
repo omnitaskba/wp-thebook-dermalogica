@@ -85,7 +85,7 @@
                     foreach ($product_type as $tp) {
                         $types []= '<a href="#" class="switch-from-'.$tp->slug.'">'.$tp->name.'</a>';
                     }
-                    echo '<p class="uppercase text-xs tracking-[0.25em] font-helvetica75">'.implode(' | ', $types).'</p>';
+                    echo '<p class="uppercase text-xs tracking-[0.25em] font-helvetica55">'.implode(' | ', $types).'</p>';
                 }
             ?>
             <h2 class="font-helvetica75 mt-10"><?php the_title(); ?></h2>

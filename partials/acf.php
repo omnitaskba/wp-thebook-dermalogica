@@ -90,9 +90,11 @@ if( have_rows('flexible_content') ):
         <div style="background-image:url('<?php echo $toppage_image['sizes']['max']; ?>')" class="image"></div>
         <div class="container">
             <h2><?php echo $toppage_title; ?></h2>
+            <?php /*
             <a href="/" class="mt-2 logoPro">
                 <img src="<?php echo get_stylesheet_directory_uri(); ?>/images/logo-white.svg" alt=""/>
             </a>
+            */ ?>
         </div>
     </div>
 
@@ -437,33 +439,99 @@ if( have_rows('flexible_content') ):
 
     <?php
 
-      elseif( get_row_layout() == '' ):
+      elseif( get_row_layout() == 'cards_vertical' ):
 
-        // $ = get_sub_field('');
-        // $ = get_sub_field('');
-        // $ = get_sub_field('');
-        // $ = get_sub_field('');
-        // $ = get_sub_field('');
-        // $ = get_sub_field('');
-        // $ = get_sub_field('');
-        // $ = get_sub_field('');
+        $cv_title = get_sub_field('cv_title');
 
     ?>
+    <div class="container">
+      <?php if($cv_title != ''){ echo '<h3 class="font-helvetica55 my-10 text-center">'.$cv_title.'</h3>'; } ?>
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-6 max-w-4xl mx-auto pb-20">
+        <?php
+          if( have_rows('cv_items') ){
+            $i=0;
+            while ( have_rows('cv_items') ){
+              the_row(); $i++;
 
+              $cv_i_image = get_sub_field('cv_i_image');
+              $cv_i_badge = get_sub_field('cv_i_badge');
+              $cv_i_title = get_sub_field('cv_i_title');
+              $cv_i_text = get_sub_field('cv_i_text');
+              $cv_i_button = get_sub_field('cv_i_button');
+
+              echo '
+                <div class="bg-white shadow-lg relative flex flex-col justify-between">
+                  '.($cv_i_badge != '' ? '<div class="absolute text-center top-0 left-0 right-0 text-sm uppercase text-white bg-primary-dark py-2">'.$cv_i_badge.'</div>' : '').'
+                  <div>
+                  '.($cv_i_button ? 
+                    '<a href="'.$cv_i_button['url'].'" style="background-image:url('.$cv_i_image['sizes']['large'].');" class="w-full block aspect-video bg-cover bg-center"'.($cv_i_button['target']=='_blank' ? 'targret="_blank"' : '').'></a>'
+                    :
+                    '<div style="background-image:url('.$cv_i_image['sizes']['large'].');" class="w-full block aspect-video bg-cover bg-center"></div>'
+                  ).'
+                  <h4 class="px-6 pt-4">'.$cv_i_title.'</h4>
+                  <p class="px-6 py-4">'.$cv_i_text.'</p>
+                  </div>
+                  '.($cv_i_button ? 
+                    '<div class="p-6">
+                      <a href="'.$cv_i_button['url'].'" class="button" '.($cv_i_button['target']=='_blank' ? 'targret="_blank"' : '').'>'.$cv_i_button['title'].'</a>
+                    </div>'
+                  : null).'
+                </div>
+              ';
+          
+            }
+          }
+        ?>
+        </div>
+      </div>
+      
     <?php
 
-      elseif( get_row_layout() == '' ):
+      elseif( get_row_layout() == 'cards_horizontal' ):
 
-        // $ = get_sub_field('');
-        // $ = get_sub_field('');
-        // $ = get_sub_field('');
-        // $ = get_sub_field('');
-        // $ = get_sub_field('');
-        // $ = get_sub_field('');
-        // $ = get_sub_field('');
-        // $ = get_sub_field('');
+        $ch_title = get_sub_field('ch_title');
 
     ?>
+    <div class="container">
+    <?php if($ch_title != ''){ echo '<h3 class="font-helvetica55 my-10 text-center">'.$ch_title.'</h3>'; } ?>
+    <div class="grid grid-cols-1 md:grid-cols-2 gap-6 mx-auto pb-20">
+      <?php
+          if( have_rows('ch_items') ){
+            $i=0;
+            while ( have_rows('ch_items') ){
+              the_row(); $i++;
+
+              $ch_i_image = get_sub_field('ch_i_image');
+              $ch_i_title = get_sub_field('ch_i_title');
+              $ch_i_text = get_sub_field('ch_i_text');
+              $ch_i_button = get_sub_field('ch_i_button');
+
+              echo '
+                <div class="bg-white shadow-lg relative flex flex-row justify-between">
+                  '.($ch_i_button ? 
+                    '<a href="'.$ch_i_buttonch_i_button['url'].'" style="background-image:url('.$ch_i_image['sizes']['large'].');" class="w-full block aspect-square bg-cover bg-center"'.($ch_i_button['target']=='_blank' ? 'targret="_blank"' : '').'></a>'
+                    :
+                    '<div style="background-image:url('.$ch_i_image['sizes']['large'].');" class="w-full block aspect-square bg-cover bg-center"></div>'
+                  ).'
+                  <div class="p-4 flex flex-col justify-between">
+                  <div>
+                  <h4>'.$ch_i_title.'</h4>
+                  <p>'.$ch_i_text.'</p>
+                  </div>
+                  '.($cv_i_button ? 
+                    '<div class="flex justify-start mt-4">
+                      <a href="'.$ch_i_button['url'].'" class="button" '.($ch_i_button['target']=='_blank' ? 'targret="_blank"' : '').'>'.$ch_i_button['title'].'</a>
+                    </div>'
+                  : null).'
+                  </div>
+                </div>
+              ';
+          
+            }
+          }
+        ?>
+        </div>
+      </div>
 
     <?php
 
