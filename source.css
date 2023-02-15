@@ -333,7 +333,7 @@ a{
     @apply text-sm leading-3;
 }
 .productArchive .filter > form > ul > li.sf-field-search input{
-    @apply w-full border-[1px] bg-primary-light bg-opacity-5 border-primary-light border-opacity-25 rounded-full h-12 px-5 focus:ring-0 focus:outline-none focus:border-opacity-100;
+    @apply w-full border-[1px] bg-primary-light bg-opacity-5 border-primary-light border-opacity-25 h-12 px-5 focus:ring-0 focus:outline-none focus:border-opacity-100;
 }
 
 .productArchive .filter > form > ul > li.sf-field-taxonomy-product_system,
