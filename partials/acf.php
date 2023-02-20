@@ -387,7 +387,7 @@ if( have_rows('flexible_content') ):
           <?php if($psb_download_file){ ?>
             <div class="my-6 text-right">
               <?php if($psb_download_title != ''){ echo '<h3 class="font-helvetica35">'.$psb_download_title.'</h3>'; } ?>
-              <a href="<?php echo $psb_download_file; ?>" class="font-helvetica75">download &rarr;</a>
+              <a href="<?php echo $psb_download_file['url']; ?>" class="font-helvetica75">download &rarr;</a>
             </div>
           <?php } ?>
         </div>
