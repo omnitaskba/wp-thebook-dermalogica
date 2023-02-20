@@ -176,6 +176,12 @@ function lockedContent($title, $accordion=true){
 }
 
 
+function _lockshortocode( $atts ){
+	return lockedContent('Locked content', false);
+}
+add_shortcode( 'lock', '_lockshortocode' );
+
+
 // 
 // 
 add_filter('wpcf7_form_elements', function($content) {
