@@ -2577,6 +2577,13 @@ div.asp_w.ajaxsearchpro.asp_non_compact#ajaxsearchpro2_1{
   margin-bottom:0px;
 }
 
+.professional_service_block ol{
+  margin-bottom:1.25rem;
+  list-style-type:decimal;
+  padding-left:1.25rem;
+  font-family:Helvetica Neue LT W05_35 Thin;
+}
+
 .professional_service_block ul{
   margin-bottom:1.25rem;
   list-style-type:disc;

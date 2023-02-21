@@ -550,6 +550,9 @@ div.asp_w.ajaxsearchpro.asp_non_compact#ajaxsearchpro2_1{
 .professional_service_block p:last-child{
     @apply mb-0;
 }
+.professional_service_block ol{
+    @apply pl-5 list-decimal mb-5 font-helvetica35;
+}
 .professional_service_block ul{
     @apply pl-5 list-disc mb-5 font-helvetica35;
 }
