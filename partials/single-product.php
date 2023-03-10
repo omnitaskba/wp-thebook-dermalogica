@@ -20,6 +20,22 @@
         }
     }
 
+    $skinCondition = false;
+    if( have_rows('pim_attributes') ){
+        $i=0;
+        while ( have_rows('pim_attributes') ){
+            the_row(); $i++;
+            // $isActiveSize = get_sub_field('pim_sizes_active');
+            // if(get_sub_field('pim_sizes_metric_size') && $isActiveSize) {
+            //     $theSizes []= array(get_sub_field('pim_sizes_type'), '<a class="taglink mr-1 mb-1 '.(get_sub_field('pim_sizes_recommended_size')==true ? 'active' : '').'" href="#">'.get_sub_field('pim_sizes_metric_size').'</a>', '<a class="taglink mr-1 mb-1 '.(get_sub_field('pim_sizes_recommended_size')==true ? 'active' : '').'" href="#">'.get_sub_field('pim_sizes_imperial_size').'</a>');
+            // }
+            $n = get_sub_field('pim_attribute_name');
+            if($n === 'Skin Condition'){
+                $skinCondition = get_sub_field('pim_attribute_description');
+            }
+        }
+    }
+
 ?>
 
 <div class="h-[160px] bg-primary-dark"></div>
@@ -115,6 +131,7 @@
                     <li><a href="#t1" class="active">description</a></li>
                     <li><a href="#t2">category</a></li>
                     <?php if( have_rows('pim_sizes') ){ ?><li><a href="#t3">sizes</a></li><?php } ?>
+                    <?php if($skinCondition){ ?><li><a href="#t4">skin condition</a></li><?php } ?>
                 </ul>
                 <div id="t1" class="content active">
                     <div class="font-helvetica35 mt-6"><?php the_content(); ?></div>
@@ -156,6 +173,13 @@
                     ?>
                     </div>
                 </div>
+                <?php if($skinCondition){ ?>
+                    <div id="t4" class="content">
+                        <div class="mt-6 max-w-md">
+                            <div class="font-helvetica35 mt-6"><?php echo $skinCondition; ?></div>
+                        </div>
+                    </div>
+                <?php } ?>
             </div>
             
         </div>
