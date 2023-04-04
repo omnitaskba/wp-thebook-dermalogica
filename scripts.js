@@ -201,6 +201,7 @@
     if($('div').hasClass('ai')===true){
 
         let controller = null;
+        let count = 0;
         const aiIntro = $('.aiIntro');
         const aiEl = $('.ai');
         const responseEl = $('.ai > .responses');
@@ -259,11 +260,13 @@
         $('form#aiForm').on('submit',function(e){
 
             e.preventDefault()
+            count++;
             const val = $('.aiQuestion').val();
             const width = $(window).width()
 
             aiEl.addClass('active');
-            responseEl.append('<div class="item"><p>'+val+'</p></div>')
+            responseEl.append('<div class="item" style="display:none;" id="q'+count+'"><p>'+val+'</p></div>')
+            responseEl.find('#q'+count+'').slideDown()
             responseEl.append('<button type="button" class="aiCancel">stop generating</button>')
             console.log('width',width)
             if(width<992){
@@ -282,7 +285,8 @@
             .then((answer) => {
                 if (answer) {
                     setTimeout(function () {
-                        responseEl.append('<div class="item response"><p>'+answer.response+'</p></div>')
+                        responseEl.append('<div class="item response" style="display:none;" id="r'+count+'"><p>'+answer.response+'</p></div>')
+                        responseEl.find('#r'+count+'').slideDown()
                     }, 300);
                 }
             })
@@ -294,7 +298,9 @@
             })
             .finally(() => {
                 aiEl.removeClass('active');
-                responseEl.find('.aiCancel').remove();
+                responseEl.find('.aiCancel').slideUp(function(){
+                    $(this).remove()
+                });
                 responseEl.animate(
                     { scrollTop: responseEl.height() },
                     300
