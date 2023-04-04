@@ -27,6 +27,9 @@ module.exports = {
       },
       fontSize:{
           xxs:'11px'
+      },
+      boxShadow:{
+        'ai':'0px 0px 15px rgba(141, 152, 159, 0.4);'
       }
     },
   },

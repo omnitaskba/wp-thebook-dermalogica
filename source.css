@@ -255,8 +255,77 @@ a{
 
 /*  */
 .homeBlock{
-    @apply w-full h-full flex flex-1 justify-center items-center bg-cover bg-center text-center text-white;
+    @apply w-full h-full flex flex-1 justify-center items-center bg-cover bg-center text-center text-primary-dark pt-20 md:pt-0;
 }
+.homeBlock h1{
+    @apply font-helvetica45;
+}
+.homeBlock p{
+    @apply font-helvetica45 text-base;
+}
+
+.ai{
+    @apply block w-full md:mt-6;
+}
+.ai .form{
+    @apply bg-white rounded flex justify-between items-center mt-2;
+}
+.ai .form input.aiQuestion{
+    @apply p-4 bg-transparent border-0 focus:ring-0 focus:outline-none w-full;
+}
+.ai .form button.aiSubmit{
+    @apply w-7 h-7 min-h-[28px] min-w-[28px] relative flex justify-center items-center mr-4;
+}
+.ai.active .form button.aiSubmit:after{
+    content: "";
+    @apply border-2 border-transparent border-t-primary-dark w-full h-full absolute rounded-full inset-0 animate-spin;
+}
+.ai.active .form button.aiSubmit > img{
+    @apply animate-pulse;
+}
+.ai .responses{
+    @apply w-full bg-white rounded-md shadow-ai overflow-y-auto max-h-[40vh]; 
+}
+.ai .responses .item{
+    @apply text-left py-1 pr-4 relative pl-14;
+}
+.ai .responses .item.response{
+    @apply bg-[#F7F7F8];
+}
+.ai .responses .item:before{
+    content: "";
+    @apply w-6 h-6 rounded bg-secondary absolute top-[18px] left-4 flex justify-center items-center;
+}
+.ai .responses .item.response:before{
+    content: "D";
+    @apply bg-primary-dark text-white;
+}
+.ai .responses .item p,
+.ai .responses .item ul,
+.ai .responses .item ol{
+    @apply my-4;
+}
+.ai .responses .item *{
+    @apply text-sm font-helvetica45;
+}
+.ai .responses .item ul,
+.ai .responses .item ol{
+    @apply pl-[18px];
+}
+.ai .responses .item ul{
+    @apply list-disc;
+}
+.ai .responses .item ol{
+    @apply list-decimal;
+}
+.ai .responses .item ul > li,
+.ai .responses .item ol > li{
+    @apply my-2;
+}
+.ai .responses .aiCancel{
+    @apply my-4 py-2 px-5 border text-xs uppercase border-primary-dark rounded-sm hover:text-white hover:bg-primary-dark transition-all ease-in-out;
+}
+
 
 
 /*  */

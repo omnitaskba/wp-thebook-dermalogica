@@ -58,19 +58,43 @@ if( have_rows('flexible_content') ):
       <iframe src="https://player.vimeo.com/video/750561348?h=fff8d18180&background=1" width="100%" height="564" frameborder="0" allow="autoplay; fullscreen; background" allowfullscreen></iframe>
       </div>
     <div class="container realtive z-[1] homepage">
-      <div class="w-full max-w-2xl mx-auto">
+      <div class="w-full md:max-w-2xl mx-auto bg-white bg-opacity-50 backdrop-blur p-6 md:p-10 rounded-md">
             <?php 
                 if($home_title != ''){
-                    echo '<h1>'.$home_title.'</h1>';
+                    echo '<h1 class="aiIntro">'.$home_title.'</h1>';
                 }
             ?>
             <?php 
                 if($home_subtitle != ''){
-                    echo '<p>'.$home_subtitle.'</p>';
+                    echo '<p class="aiIntro">'.$home_subtitle.'</p>';
                 }
             ?>
-            <div class="w-full mt-10">
-            <?php echo do_shortcode('[wd_asp id=1]'); ?>
+            <!-- <div class="w-full mt-10">
+            <?php //echo do_shortcode('[wd_asp id=1]'); ?>
+              
+            </div> -->
+            <div class="ai">
+              <div class="responses">
+                <!-- 
+
+                <div class="item">
+                  <p>What services should I provide for clients with hyperpigmentation?</p>
+                </div>
+                <div class="item response">
+                  <p>Hyperpigmentation is a common skin concern that can be caused by various factors such as un exposure, hormonal changes, and inflammation. Here are some services and products you can offer to help your client with hyperpigmentation:</p>
+                  <ol>
+                    <li>We would recommend Dermalogica's PRO Bright treatment. This treatment is a high-intensity, 3-step skin treatment that boosts absorption of brightening actives Vitamin C, Niacinamide and Hexylresorcinol into the skin – addressing dark spots and reducing uneven pigmentation to reveal brighter skin.</li>
+                    <li>In terms of products, we would recommend BioLumin-C, PowerBright Dark</li>
+                  </ol>
+                </div>
+                <button type="button" class="aiCancel">stop generating</button>
+
+                 -->
+              </div>
+              <form class="form" id="aiForm">
+                <input type="text" name="aiQuestion" class="aiQuestion" placeholder="Search for specific products, ingredients, or information..."/>
+                <button type="submit" class="aiSubmit"><img src="<?php echo get_stylesheet_directory_uri(); ?>/images/send.svg" alt=""/></button>
+              </form>
             </div>
       </div>
     </div>

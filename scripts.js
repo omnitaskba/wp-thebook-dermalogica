@@ -187,6 +187,126 @@
         $('a.img-professional').show()
         $('a.img-retail').hide()
     })
+
+
+
+
+ 
+
+    // 
+    // 
+    // AI chat
+    // 
+
+    if($('div').hasClass('ai')===true){
+
+        let controller = null;
+        const aiIntro = $('.aiIntro');
+        const aiEl = $('.ai');
+        const responseEl = $('.ai > .responses');
+
+
+        function _cancel(){
+            $('.aiCancel').on('click',function(){
+                if (controller) {
+                    controller.abort();
+                    aiEl.removeClass('active');
+                    responseEl.find('.aiCancel').remove();
+                    return null;
+                }
+            })
+        }
+
+
+        /**
+         * Returns a Dermalogica GPT Response
+         */
+        async function getGPTResponse(prompt) {
+            controller = new AbortController();
+            try {
+                console.log("Request started...");
+                const options = {
+                    method: "GET",
+                    headers: { "x-api-key": "2ecf3416-5162-4334-8f10-c1b2aa2b8dd1" },
+                    signal: controller.signal,
+                };
+            
+                const response = await fetch(
+                    "https://derm-api.jeti.ai:444/askai?" +
+                    new URLSearchParams({
+                        question: prompt,
+                        session: 1111, // Check impact keeping same session id on subsequent requests
+                    }),
+                    options
+                );
+            
+                if (!response.ok) {
+                    const message = `An error has occured: ${response.status}`;
+                    throw new Error(message);
+                }
+            
+                const answer = await response.json();
+                return answer;
+            } catch (error) {
+                console.log(`Fetch error: ${error.name}`);
+            }
+        }
+
+
+
+        $('form#aiForm').on('submit',function(e){
+
+            e.preventDefault()
+            const val = $('.aiQuestion').val();
+            const width = $(window).size()
+
+            aiEl.addClass('active');
+            responseEl.append('<div class="item"><p>'+val+'</p></div>')
+            responseEl.append('<button type="button" class="aiCancel">stop generating</button>')
+            if(width<992){
+                aiIntro.slideUp()
+            }
+            $('.aiQuestion').val('');
+            _cancel()
+            responseEl.animate(
+                { scrollTop: responseEl.height() },
+                300
+            );
+
+
+            // show bot message
+            getGPTResponse(prompt)
+            .then((answer) => {
+                if (answer) {
+                    setTimeout(function () {
+                        responseEl.append('<div class="item response"><p>'+answer.response+'</p></div>')
+                    }, 300);
+                }
+            })
+            .catch((error) => {
+                console.log(error.message);
+                setTimeout(function () {
+                showBotMessage(error.message);
+                }, 300);
+            })
+            .finally(() => {
+                aiEl.removeClass('active');
+                responseEl.find('.aiCancel').remove();
+                responseEl.animate(
+                    { scrollTop: responseEl.height() },
+                    300
+                );
+            });
+
+        })
+
+
+
+        
+
+    }else{
+        console.log('no ai form')
+    }
   
   
   })(jQuery, this);
