@@ -204,6 +204,8 @@
         const aiIntro = $('.aiIntro');
         const aiEl = $('.ai');
         const responseEl = $('.ai > .responses');
+        const rand = Math.round(Math.random() * (9000 - 1000) + 1000)
+
 
 
         function _cancel(){
@@ -235,7 +237,7 @@
                     "https://derm-api.jeti.ai:444/askai?" +
                     new URLSearchParams({
                         question: prompt,
-                        session: 1111, // Check impact keeping same session id on subsequent requests
+                        session: rand, // Check impact keeping same session id on subsequent requests
                     }),
                     options
                 );
@@ -258,11 +260,12 @@
 
             e.preventDefault()
             const val = $('.aiQuestion').val();
-            const width = $(window).size()
+            const width = $(window).width()
 
             aiEl.addClass('active');
             responseEl.append('<div class="item"><p>'+val+'</p></div>')
             responseEl.append('<button type="button" class="aiCancel">stop generating</button>')
+            console.log('width',width)
             if(width<992){
                 aiIntro.slideUp()
             }
@@ -275,7 +278,7 @@
 
 
             // show bot message
-            getGPTResponse(prompt)
+            getGPTResponse(val)
             .then((answer) => {
                 if (answer) {
                     setTimeout(function () {
