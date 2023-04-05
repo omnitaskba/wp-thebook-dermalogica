@@ -43,7 +43,7 @@ function _assets() {
   	wp_enqueue_style('maginfic-style');
 
 	// Main JS script
-	wp_register_script('main-script', $template_url . '/scripts.js', array('jquery'), '', true );
+	wp_register_script('main-script', $template_url . '/scripts.js?v='.mt_rand(000,999), array('jquery'), '', true );
 	wp_enqueue_script('main-script');
 	
 	// Main style

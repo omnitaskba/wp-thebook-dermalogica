@@ -90,9 +90,10 @@ if( have_rows('flexible_content') ):
                 <button type="button" class="aiCancel">stop generating</button>
 
                  -->
+                <!-- <button type="button" class="aiCancel">stop generating</button> -->
               </div>
               <form class="form" id="aiForm">
-                <input type="text" name="aiQuestion" class="aiQuestion" placeholder="Search for specific products, ingredients, or information..."/>
+                <input type="text" name="aiQuestion" class="aiQuestion" placeholder="Search for specific products, ingredients, or information..." autocomplete="off"/>
                 <button type="submit" class="aiSubmit"><img src="<?php echo get_stylesheet_directory_uri(); ?>/images/send.svg" alt=""/></button>
               </form>
             </div>

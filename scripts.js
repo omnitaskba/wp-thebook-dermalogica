@@ -245,14 +245,29 @@
             
                 if (!response.ok) {
                     const message = `An error has occured: ${response.status}`;
-                    throw new Error(message);
+                    console.log(`Fetch error: ${message}`);
+                    return false
                 }
             
                 const answer = await response.json();
                 return answer;
             } catch (error) {
                 console.log(`Fetch error: ${error.name}`);
+                return false
             }
+        }
+
+
+        function _scrollBottom(){
+            setTimeout(function(){
+                let height = 0
+                responseEl.find('.item').map((x,y) => height += $(y).height())
+                console.log('El height', height)
+                responseEl.animate(
+                    { scrollTop: height },
+                    300
+                );
+            },500)
         }
 
 
@@ -260,12 +275,15 @@
         $('form#aiForm').on('submit',function(e){
 
             e.preventDefault()
-            count++;
             const val = $('.aiQuestion').val();
             const width = $(window).width()
+            if(val===''){
+                return
+            }
+            count++;
 
             aiEl.addClass('active');
-            responseEl.append('<div class="item" style="display:none;" id="q'+count+'"><p>'+val+'</p></div>')
+            responseEl.append('<div class="item" style="display:none;" id="q'+count+'"><div><p>'+val+'</p></div></div>')
             responseEl.find('#q'+count+'').slideDown()
             responseEl.append('<button type="button" class="aiCancel">stop generating</button>')
             console.log('width',width)
@@ -274,37 +292,30 @@
             }
             $('.aiQuestion').val('');
             _cancel()
-            responseEl.animate(
-                { scrollTop: responseEl.height() },
-                300
-            );
+            _scrollBottom()
 
 
             // show bot message
             getGPTResponse(val)
             .then((answer) => {
                 if (answer) {
-                    setTimeout(function () {
-                        responseEl.append('<div class="item response" style="display:none;" id="r'+count+'"><p>'+answer.response+'</p></div>')
-                        responseEl.find('#r'+count+'').slideDown()
-                    }, 300);
+                    responseEl.append('<div class="item response" style="" id="r'+count+'"><div><p>'+answer.response+'</p></div></div>')
+                    responseEl.find('.aiCancel').remove();
+                    // responseEl.find('#r'+count+'').slideDown()
+                    _scrollBottom()
+                }else{
+                    responseEl.append('<div class="item response" style="" id="r'+count+'"><div><p>Fetch error: An error has occured: 400</p></div></div>')
+                    responseEl.find('.aiCancel').remove();
                 }
             })
             .catch((error) => {
-                console.log(error.message);
-                setTimeout(function () {
-                showBotMessage(error.message);
-                }, 300);
+                responseEl.append('<div class="item response" style="" id="r'+count+'"><div><p>'+error.message+'</p></div></div>')
+                responseEl.find('.aiCancel').remove();
+                // responseEl.find('#r'+count+'').slideDown()
+                _scrollBottom()
             })
             .finally(() => {
                 aiEl.removeClass('active');
-                responseEl.find('.aiCancel').slideUp(function(){
-                    $(this).remove()
-                });
-                responseEl.animate(
-                    { scrollTop: responseEl.height() },
-                    300
-                );
             });
 
         })

@@ -207,7 +207,7 @@ a{
 
 /* main content area */
 .mainContent{
-    @apply flex flex-1 flex-col h-full w-full min-h-[80vh] lg:min-h-full relative z-[8];
+    @apply flex flex-1 flex-col h-full w-full min-h-[100vh] lg:min-h-[80vh] lg:min-h-full relative z-[8];
 }
 
 
@@ -284,13 +284,16 @@ a{
     @apply animate-pulse;
 }
 .ai .responses{
-    @apply w-full bg-white rounded-md shadow-ai overflow-y-auto max-h-[40vh]; 
+    @apply w-full bg-white rounded-md shadow-ai overflow-y-auto max-h-[60vh] lg:max-h-[40vh]; 
 }
 .ai .responses .item{
-    @apply text-left py-1 pr-4 relative pl-14;
+    @apply text-left relative;
 }
 .ai .responses .item.response{
     @apply bg-[#F7F7F8];
+}
+.ai .responses .item > div{
+    @apply py-1 pr-4 pl-14;
 }
 .ai .responses .item:before{
     content: "";
