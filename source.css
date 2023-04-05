@@ -303,10 +303,13 @@ a{
     content: "D";
     @apply bg-primary-dark text-white;
 }
+.ai .responses .item a{
+    @apply text-secondary underline hover:text-primary-dark;
+}
 .ai .responses .item p,
 .ai .responses .item ul,
 .ai .responses .item ol{
-    @apply my-4;
+    @apply my-4 break-words;
 }
 .ai .responses .item *{
     @apply text-sm font-helvetica45;

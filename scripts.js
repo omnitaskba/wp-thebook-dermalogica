@@ -271,6 +271,19 @@
         }
 
 
+        function convertLinks(input) {
+            let text = input;
+            const linksFound = text.match(/(?:www|https?)[^\s]+/g);
+
+            console.log('convertLinks',linksFound)
+            if(linksFound){
+                return text.replace(/(?:www|https?)[^\s]+/g,'<a href="'+linksFound[0]+'" target="_blank">'+linksFound[0]+'</a>')
+            }
+
+            return text
+        }
+
+
 
         $('form#aiForm').on('submit',function(e){
 
@@ -299,7 +312,7 @@
             getGPTResponse(val)
             .then((answer) => {
                 if (answer) {
-                    responseEl.append('<div class="item response" style="" id="r'+count+'"><div><p>'+answer.response+'</p></div></div>')
+                    responseEl.append('<div class="item response" style="" id="r'+count+'"><div><p>'+convertLinks(answer.response)+'</p></div></div>')
                     responseEl.find('.aiCancel').remove();
                     // responseEl.find('#r'+count+'').slideDown()
                     _scrollBottom()

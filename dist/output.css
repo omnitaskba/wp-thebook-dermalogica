@@ -1926,11 +1926,24 @@ a:focus{
   color:rgb(255 255 255 / var(--tw-text-opacity));
 }
 
+.ai .responses .item a{
+  --tw-text-opacity:1;
+  color:rgb(94 147 219 / var(--tw-text-opacity));
+  -webkit-text-decoration-line:underline;
+          text-decoration-line:underline;
+}
+
+.ai .responses .item a:hover{
+  --tw-text-opacity:1;
+  color:rgb(53 63 72 / var(--tw-text-opacity));
+}
+
 .ai .responses .item p, 
 .ai .responses .item ul, 
 .ai .responses .item ol{
   margin-top:1rem;
   margin-bottom:1rem;
+  overflow-wrap:break-word;
 }
 
 .ai .responses .item *{
