@@ -6,6 +6,7 @@
     $product_use = get_the_terms( $post->ID, 'product_use' );
     $product_system = get_the_terms( $post->ID, 'product_system' );
     $product_type = get_the_terms( $post->ID, 'product_type' );
+    $_type = isset($_GET['type']) ? ($_GET['type']==='professional' ? 'professional' : 'retail') : 'professional';
     $theSizes = array();
 
 
@@ -59,7 +60,7 @@
             <?php
 
                 $tIDpro = null;
-                if(isset($_GET['type']) && $_GET['type']==='professional'){
+                // if(isset($_GET['type']) && $_GET['type']==='professional'){
                     if( have_rows('pim_sizes', get_the_ID()) ){
                         while ( have_rows('pim_sizes', get_the_ID()) ){
                             the_row();
@@ -72,16 +73,18 @@
                             }
                         }
                     }
-                }
+                // }
+
+                // print_r(array('tid'=>$tID, 'tidpro'=>$tIDpro, 'type'=>$_type, 'retail-img'=>($tIDpro && $_type==='Professional') ? 'true' : 'false'));
 
                 if($tID || $tIDpro){
                     if($tID){
-                        echo '<a href="'.wp_get_attachment_image_url($tID, 'max', '').'" class="zoom hidden-m img-retail" '.($tIDpro ? 'style="display:none"' : '').'>';
+                        echo '<a href="'.wp_get_attachment_image_url($tID, 'max', '').'" class="zoom hidden-m img-retail" '.(($tIDpro && $_type==='professional') ? 'style="display:none"' : '').'>';
                         echo wp_get_attachment_image($tID, 'large', '');
                         echo '</a>';
                     }
                     if($tIDpro){
-                        echo '<a href="'.wp_get_attachment_image_url($tIDpro, 'max', '').'" class="zoom hidden-m img-professional">';
+                        echo '<a href="'.wp_get_attachment_image_url($tIDpro, 'max', '').'" class="zoom hidden-m img-professional" '.($_type==='retail' ? 'style="display:none"' : '').'>';
                         echo wp_get_attachment_image($tIDpro, 'large', '');
                         echo '</a>';
                     }
@@ -110,12 +113,12 @@
             <?php 
                 if($tID || $tIDpro){
                     if($tID){
-                        echo '<a href="'.wp_get_attachment_image_url($tID, 'max', '').'" class="zoom hidden-d img-retail" '.($tIDpro ? 'style="display:none"' : '').'>';
+                        echo '<a href="'.wp_get_attachment_image_url($tID, 'max', '').'" class="zoom hidden-d img-retail" '.(($tIDpro && $_type==='professional') ? 'style="display:none"' : '').'>';
                         echo wp_get_attachment_image($tID, 'large', '');
                         echo '</a>';
                     }
                     if($tIDpro){
-                        echo '<a href="'.wp_get_attachment_image_url($tIDpro, 'max', '').'" class="zoom hidden-d img-professional">';
+                        echo '<a href="'.wp_get_attachment_image_url($tIDpro, 'max', '').'" class="zoom hidden-d img-professional" '.($_type==='retail' ? 'style="display:none"' : '').'>';
                         echo wp_get_attachment_image($tIDpro, 'large', '');
                         echo '</a>';
                     }

@@ -43,7 +43,7 @@ function _assets() {
   	wp_enqueue_style('maginfic-style');
 
 	// Main JS script
-	wp_register_script('main-script', $template_url . '/scripts.js?v='.mt_rand(000,999), array('jquery'), '', true );
+	wp_register_script('main-script', $template_url . '/scripts.js', array('jquery'), '', true );
 	wp_enqueue_script('main-script');
 	
 	// Main style
@@ -226,6 +226,16 @@ function my_acf_json_load_point( $paths ) {
 
 }
 
+
+
+
+/** Plugin Name: (#73190) Alter adjacent post link sort order */
+function wpse73190_adjacent_post_sort( $orderby )
+{
+    return "ORDER BY p.post_title ASC LIMIT 1";
+}
+add_filter( 'get_previous_post_sort', 'wpse73190_adjacent_post_sort' );
+add_filter( 'get_next_post_sort', 'wpse73190_adjacent_post_sort' );
 
 
 ?>

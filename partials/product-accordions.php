@@ -134,7 +134,7 @@
             $i=0;
             foreach($an as $item){
                 $i++;
-                $applicationsNew .= '<div class="orderItem"><span class="num">'.$i.'</span>'.$item['description'].($item['optional'] ? '<div class-"mb-4"><h6 class="bold">optional</h6>'.$item['optionalText'].'<br/><br/></div>' : '').'</div>';
+                $applicationsNew .= '<div class="orderItem"><span class="num">'.$i.'</span>'.$item['description'].($item['optional'] ? '<div class="mb-4 pl-4">'.$item['optionalText'].'<br/><br/></div>' : '').'</div>';
             }
         }
 

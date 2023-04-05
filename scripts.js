@@ -262,7 +262,6 @@
             setTimeout(function(){
                 let height = 0
                 responseEl.find('.item').map((x,y) => height += $(y).height())
-                console.log('El height', height)
                 responseEl.animate(
                     { scrollTop: height },
                     300
@@ -275,7 +274,6 @@
             let text = input;
             const linksFound = text.match(/(?:www|https?)[^\s]+/g);
 
-            console.log('convertLinks',linksFound)
             if(linksFound){
                 return text.replace(/(?:www|https?)[^\s]+/g,'<a href="'+linksFound[0]+'" target="_blank">'+linksFound[0]+'</a>')
             }
@@ -299,7 +297,6 @@
             responseEl.append('<div class="item" style="display:none;" id="q'+count+'"><div><p>'+val+'</p></div></div>')
             responseEl.find('#q'+count+'').slideDown()
             responseEl.append('<button type="button" class="aiCancel">stop generating</button>')
-            console.log('width',width)
             if(width<992){
                 aiIntro.slideUp()
             }
