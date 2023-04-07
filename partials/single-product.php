@@ -157,6 +157,7 @@
                 <div id="t3" class="content">
                     <div class="mt-6 max-w-md">
                     <?php
+                        echo count($theSizes);
                         if(count($theSizes)>0){
                             echo '
                                 <div class="flex justify-between items-start my-10">
