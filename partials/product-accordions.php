@@ -95,8 +95,7 @@
 
             $pim_ingredients .= '<p>'.$title.$value.'</p>';
         }
-        $accordions [13]= array('Ingredients', $pim_ingredients);
-        var_dump($pim_ingredients);
+        $accordions [13]= array('Ingredients', $pim_ingredients);        
     }
 
 
