@@ -58,6 +58,7 @@ if (have_rows('pim_compatible_modalities')) {
 
 //
 if (have_rows('pim_disclaimers')) {
+    var_dump("PIM disclaimers");
     $pim_disclaimers = '';
     while (have_rows('pim_disclaimers')) {
         the_row();
