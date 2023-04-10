@@ -39,7 +39,13 @@ if (have_rows('pim_attributes')) {
                 $accordions[8] = array('Quick Tip', $pim_attribute_description);
             } else if ($pim_attribute_name == 'Bioactivity score') {
                 $accordions[10] = array('Bioactivity score', $pim_attribute_description);
+            } else if ($pim_attribute_name == 'Warnings') {
+                $accordions[12] = array('Warnings', $pim_attribute_description);            
+            } else if ($pim_attribute_name == 'Contraindications') {
+                $accordions[16] = array('Contraindications', $pim_attribute_description);
             }
+
+            // Warnings and Contraindications
         }
     }
 
@@ -56,29 +62,23 @@ if (have_rows('pim_compatible_modalities')) {
     $accordions[9] = array('Compatible Modalities', $compatibleModalities);
 }
 
-//
-// var_dump(have_rows('pim_disclaimers'));
+// if (have_rows('pim_disclaimers')) {
+//     $pim_disclaimers = '';
+//     while (have_rows('pim_disclaimers')) {
+//         the_row();
+//         $value = get_sub_field('pim_disclaimer');
+//         $type = get_sub_field('pim_wc_type');
 
-if (have_rows('pim_disclaimers')) {
-    // echo '<h1>pim_disclaimers</h1>';
-    $pim_disclaimers = '';
-    while (have_rows('pim_disclaimers')) {
-        the_row();
-        $value = get_sub_field('pim_disclaimer');
-        $type = get_sub_field('pim_wc_type');
+//         $title = '';
+//         if ($type != 'default') {
+//             $title = '<strong class="bold">' . $type . '</strong><br/>';
+//         }
 
-        $title = '';
-        if ($type != 'default') {
-            $title = '<strong class="bold">' . $type . '</strong><br/>';
-        }
+//         $pim_disclaimers .= '<p>' . $title . $value . '</p>';
+//     }
+//     $accordions[12] = array('Warnings and Contraindications', $pim_disclaimers);
+// }
 
-        $pim_disclaimers .= '<p>' . $title . $value . '</p>';
-    }
-    $accordions[12] = array('Warnings and Contraindications', $pim_disclaimers);
-    // var_dump($accordions[12]);
-}
-
-//
 if (have_rows('pim_ingredients')) {
 
     $pim_ingredients = '';
