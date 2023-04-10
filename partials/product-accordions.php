@@ -57,10 +57,10 @@ if (have_rows('pim_compatible_modalities')) {
 }
 
 //
-var_dump(have_rows('pim_disclaimers'));
+// var_dump(have_rows('pim_disclaimers'));
 
 if (have_rows('pim_disclaimers')) {
-    echo '<h1>pim_disclaimers</h1>';
+    // echo '<h1>pim_disclaimers</h1>';
     $pim_disclaimers = '';
     while (have_rows('pim_disclaimers')) {
         the_row();
@@ -75,7 +75,7 @@ if (have_rows('pim_disclaimers')) {
         $pim_disclaimers .= '<p>' . $title . $value . '</p>';
     }
     $accordions[12] = array('Warnings and Contraindications', $pim_disclaimers);
-    var_dump($accordions[12]);
+    // var_dump($accordions[12]);
 }
 
 //
