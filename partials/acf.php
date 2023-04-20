@@ -97,7 +97,8 @@ if( have_rows('flexible_content') ):
                 <button type="submit" class="aiSubmit"><img src="<?php echo get_stylesheet_directory_uri(); ?>/images/send.svg" alt=""/></button>
               </form>
 
-              <div class="grid grid-cols-1 lg:grid-cols-2 gap-6 mt-10 pt-10 border-t border-t-gray-400 border-opacity-25 aiBottom">
+              <div class="aiBottom">
+              <div class="grid grid-cols-1 lg:grid-cols-2 gap-6 mt-10 pt-10 border-t border-t-gray-400 border-opacity-25">
                 <div class="flex flex-col gap-4">
                   <a href="/professional-products/" class="button white !px-4 !gap-3 !justify-between rounded"><span>explore professional products</span><i class="icon-chevron-right text-sm"></i></a>
                   <a href="/retail-products/" class="button white !px-4 !gap-3 !justify-between rounded"><span>explore retail products</span><i class="icon-chevron-right text-sm"></i></a>
@@ -107,6 +108,9 @@ if( have_rows('flexible_content') ):
                   <a href="https://dermalogicathebook.com/" target="_blank" class="text-sm !text-secondary !underline">take me to legacy version of The Book</a>
                 </div>
               </div>
+              <p class="mt-4 !text-xs text-center">By interacting with this web site, you are agreeing to our <a href="https://thebook.local/#" target="_blank" class="!underline">Terms of Use</a> and <a href="https://thebook.local/#" target="_blank" class="!underline">Privacy Notice</a></p>
+              </div>
+
             </div>
       </div>
     </div>

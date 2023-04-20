@@ -144,7 +144,7 @@ a{
 
 /* header */
 .header{
-    @apply w-full absolute top-0 left-0 right-0 h-[150px] lg:h-[160px] flex items-center z-[9];
+    @apply w-full bg-white h-[75px] lg:h-[90px] flex items-center z-[9];
 }
 .header .logo{
     @apply font-bold text-white text-2xl font-helvetica75;
