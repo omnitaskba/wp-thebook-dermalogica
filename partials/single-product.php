@@ -15,10 +15,14 @@
         while ( have_rows('pim_sizes') ){
             the_row(); $i++;
             $isActiveSize = get_sub_field('pim_sizes_active');
+            // var_dump(get_sub_field('pim_sizes_active'));
+            // var_dump(get_sub_field('pim_sizes_metric_size'));
+
             if(get_sub_field('pim_sizes_metric_size') && $isActiveSize) {
                 $theSizes []= array(get_sub_field('pim_sizes_type'), '<a class="taglink mr-1 mb-1 '.(get_sub_field('pim_sizes_recommended_size')==true ? 'active' : '').'" href="#">'.get_sub_field('pim_sizes_metric_size').'</a>', '<a class="taglink mr-1 mb-1 '.(get_sub_field('pim_sizes_recommended_size')==true ? 'active' : '').'" href="#">'.get_sub_field('pim_sizes_imperial_size').'</a>');
             }
         }
+        // var_dump($theSizes);
     }
 
     $skinCondition = false;
@@ -133,7 +137,7 @@
                 <ul>
                     <li><a href="#t1" class="active">description</a></li>
                     <li><a href="#t2">category</a></li>
-                    <?php if( have_rows('pim_sizes') ){ ?><li><a href="#t3">sizes</a></li><?php } ?>
+                    <?php if( count($theSizes)>0 ){ ?><li><a href="#t3">sizes</a></li><?php } ?>
                     <?php if($skinCondition){ ?><li><a href="#t4">skin condition</a></li><?php } ?>
                 </ul>
                 <div id="t1" class="content active">
@@ -152,7 +156,7 @@
                 </div>
                 <div id="t3" class="content">
                     <div class="mt-6 max-w-md">
-                    <?php
+                    <?php                        
                         if(count($theSizes)>0){
                             echo '
                                 <div class="flex justify-between items-start my-10">

@@ -230,7 +230,7 @@
                 console.log("Request started...");
                 const options = {
                     method: "GET",
-                    headers: { "x-api-key": "2ecf3416-5162-4334-8f10-c1b2aa2b8dd1" },
+                    headers: { "x-api-key": "81751cd9-d529-4087-85e4-04ae64e0d0b7" },
                     signal: controller.signal,
                 };
             
