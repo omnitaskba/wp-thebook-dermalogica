@@ -29,7 +29,7 @@
 
     <div class="mainNavigation">
         <div>
-            <div class="flex justify-between items-center max-w-[360px] w-full py-6 lg:py-20 px-10">
+            <div class="flex justify-between items-center max-w-[360px] w-full py-4 lg:py-20 px-10">
                 <a href="/" class="logo">the book</a>
                 <a href="#" class="close"><i class="icon-close"></i></a>
             </div>
