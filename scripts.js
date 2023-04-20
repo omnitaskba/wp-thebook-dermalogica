@@ -303,6 +303,7 @@
             $('.aiQuestion').val('');
             _cancel()
             _scrollBottom()
+            $('.aiBottom').slideUp()
 
 
             // show bot message

@@ -248,6 +248,9 @@ a{
 .button.secondary{
     @apply hover:text-white bg-secondary hover:bg-secondary hover:bg-opacity-75;
 }
+.button.white{
+    @apply text-primary-dark hover:text-white bg-white hover:bg-primary-dark hover:bg-opacity-75;
+}
 .button.outline.secondary{
     @apply bg-white hover:bg-secondary hover:bg-opacity-100 border-2 border-secondary text-secondary outline-none hover:text-white;
 }

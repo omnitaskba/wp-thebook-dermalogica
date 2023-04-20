@@ -96,6 +96,17 @@ if( have_rows('flexible_content') ):
                 <input type="text" name="aiQuestion" class="aiQuestion" placeholder="Search for specific products, ingredients, or information..." autocomplete="off"/>
                 <button type="submit" class="aiSubmit"><img src="<?php echo get_stylesheet_directory_uri(); ?>/images/send.svg" alt=""/></button>
               </form>
+
+              <div class="grid grid-cols-1 lg:grid-cols-2 gap-6 mt-10 pt-10 border-t border-t-gray-400 border-opacity-25 aiBottom">
+                <div class="flex flex-col gap-4">
+                  <a href="/professional-products/" class="button white !px-4 !gap-3 !justify-between rounded"><span>explore professional products</span><i class="icon-chevron-right text-sm"></i></a>
+                  <a href="/retail-products/" class="button white !px-4 !gap-3 !justify-between rounded"><span>explore retail products</span><i class="icon-chevron-right text-sm"></i></a>
+                  <a href="/ingredients/" class="button white !px-4 !gap-3 !justify-between rounded"><span>explore ingredients</span><i class="icon-chevron-right text-sm"></i></a>
+                </div>
+                <div class="flex justify-end items-end">
+                  <a href="https://dermalogicathebook.com/" target="_blank" class="text-sm !text-secondary !underline">take me to legacy version of The Book</a>
+                </div>
+              </div>
             </div>
       </div>
     </div>
