@@ -109,6 +109,7 @@ if( have_rows('flexible_content') ):
                 </div>
               </div>
               <p class="mt-4 !text-xs text-center">By interacting with this web site, you are agreeing to our <a href="https://thebook.local/#" target="_blank" class="!underline">Terms of Use</a> and <a href="https://thebook.local/#" target="_blank" class="!underline">Privacy Notice</a></p>
+              <p class="!text-xs text-center">Want to share your feedback on this experience? <a href="https://forms.microsoft.com/pages/responsepage.aspx?id=3rLauO7D-keEs-pxmOKKvbn1lOhxKiRHlX8CIsSG7bRUQjNCQVVITzAzUUY0UkNLRzc3RjZMVENUNy4u" target="_blank" class="!underline">Click here</a>.</p>
               </div>
 
             </div>
