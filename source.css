@@ -258,7 +258,7 @@ a{
 
 /*  */
 .homeBlock{
-    @apply w-full h-full flex flex-1 justify-center items-center bg-cover bg-center text-center text-primary-dark pt-20 md:pt-0;
+    @apply w-full h-full flex flex-1 justify-center items-center bg-cover bg-center text-center text-primary-dark pt-20 md:pt-0 overflow-hidden relative;
 }
 .homeBlock h1{
     @apply font-helvetica45;
