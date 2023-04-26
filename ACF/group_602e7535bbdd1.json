@@ -1,0 +1,45 @@
+{
+    "key": "group_602e7535bbdd1",
+    "title": "Ingredients",
+    "fields": [
+        {
+            "key": "field_602e75686ea7b",
+            "label": "Ingredient ID",
+            "name": "ing_ingredient_id",
+            "aria-label": "",
+            "type": "text",
+            "instructions": "PIM Core Ingredient ID",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "default_value": "",
+            "placeholder": "",
+            "prepend": "",
+            "append": "",
+            "maxlength": ""
+        }
+    ],
+    "location": [
+        [
+            {
+                "param": "taxonomy",
+                "operator": "==",
+                "value": "all"
+            }
+        ]
+    ],
+    "menu_order": 0,
+    "position": "normal",
+    "style": "default",
+    "label_placement": "top",
+    "instruction_placement": "label",
+    "hide_on_screen": "",
+    "active": true,
+    "description": "",
+    "show_in_rest": 1,
+    "modified": 1679689647
+}

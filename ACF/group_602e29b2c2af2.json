@@ -6,6 +6,7 @@
             "key": "field_6066df4777340",
             "label": "PIM ID",
             "name": "pim_id",
+            "aria-label": "",
             "type": "number",
             "instructions": "",
             "required": 1,
@@ -27,6 +28,7 @@
             "key": "field_602e29bca6062",
             "label": "Subtitle",
             "name": "pim_subtitle",
+            "aria-label": "",
             "type": "text",
             "instructions": "",
             "required": 0,
@@ -46,6 +48,7 @@
             "key": "field_602e29e0151da",
             "label": "Formula number",
             "name": "pim_formula_number",
+            "aria-label": "",
             "type": "text",
             "instructions": "",
             "required": 0,
@@ -65,6 +68,7 @@
             "key": "field_6066ed3fcdd45",
             "label": "Top recommended products",
             "name": "pim_top_recommended_products",
+            "aria-label": "",
             "type": "relationship",
             "instructions": "",
             "required": 0,
@@ -94,6 +98,7 @@
             "key": "field_6262ea7c80330",
             "label": "Prescribed products",
             "name": "pim_prescribed_products",
+            "aria-label": "",
             "type": "relationship",
             "instructions": "",
             "required": 0,
@@ -123,6 +128,7 @@
             "key": "field_6066e0034f877",
             "label": "Ingredients",
             "name": "pim_ingredients",
+            "aria-label": "",
             "type": "repeater",
             "instructions": "",
             "required": 0,
@@ -136,12 +142,13 @@
             "min": 0,
             "max": 0,
             "layout": "table",
-            "button_label": "",
+            "button_label": "Add Row",
             "sub_fields": [
                 {
                     "key": "field_6239c5dccd494",
                     "label": "Type",
                     "name": "pim_ingridients_type",
+                    "aria-label": "",
                     "type": "select",
                     "instructions": "",
                     "required": 0,
@@ -162,15 +169,17 @@
                     "ui": 0,
                     "return_format": "value",
                     "ajax": 0,
-                    "placeholder": ""
+                    "placeholder": "",
+                    "parent_repeater": "field_6066e0034f877"
                 },
                 {
                     "key": "field_6232fde24698c",
                     "label": "Ingredients",
                     "name": "pim_ingredient_section_content",
-                    "type": "text",
+                    "aria-label": "",
+                    "type": "textarea",
                     "instructions": "",
-                    "required": 1,
+                    "required": 0,
                     "conditional_logic": 0,
                     "wrapper": {
                         "width": "",
@@ -178,17 +187,20 @@
                         "id": ""
                     },
                     "default_value": "",
+                    "maxlength": "",
+                    "rows": "",
                     "placeholder": "",
-                    "prepend": "",
-                    "append": "",
-                    "maxlength": ""
+                    "new_lines": "",
+                    "parent_repeater": "field_6066e0034f877"
                 }
-            ]
+            ],
+            "rows_per_page": 20
         },
         {
             "key": "field_61e558c101cd0",
             "label": "Benefits",
             "name": "pim_benefits",
+            "aria-label": "",
             "type": "repeater",
             "instructions": "",
             "required": 0,
@@ -208,6 +220,7 @@
                     "key": "field_61e5590201cd1",
                     "label": "Benefit",
                     "name": "pim_benefit",
+                    "aria-label": "",
                     "type": "text",
                     "instructions": "",
                     "required": 0,
@@ -221,14 +234,17 @@
                     "placeholder": "",
                     "prepend": "",
                     "append": "",
-                    "maxlength": ""
+                    "maxlength": "",
+                    "parent_repeater": "field_61e558c101cd0"
                 }
-            ]
+            ],
+            "rows_per_page": 20
         },
         {
             "key": "field_61e557583ce08",
             "label": "Key ingredients",
             "name": "pim_key_ingredients",
+            "aria-label": "",
             "type": "repeater",
             "instructions": "",
             "required": 0,
@@ -248,6 +264,7 @@
                     "key": "field_61e559e2b4ef2",
                     "label": "Ingredient",
                     "name": "pim_key_ingredient",
+                    "aria-label": "",
                     "type": "text",
                     "instructions": "",
                     "required": 0,
@@ -261,14 +278,17 @@
                     "placeholder": "",
                     "prepend": "",
                     "append": "",
-                    "maxlength": ""
+                    "maxlength": "",
+                    "parent_repeater": "field_61e557583ce08"
                 }
-            ]
+            ],
+            "rows_per_page": 20
         },
         {
             "key": "field_606afc52bbf57",
             "label": "Sizes",
             "name": "pim_sizes",
+            "aria-label": "",
             "type": "repeater",
             "instructions": "",
             "required": 0,
@@ -282,12 +302,13 @@
             "min": 0,
             "max": 0,
             "layout": "table",
-            "button_label": "",
+            "button_label": "Add Row",
             "sub_fields": [
                 {
                     "key": "field_606afc52bbf58",
                     "label": "Imperial size",
                     "name": "pim_sizes_imperial_size",
+                    "aria-label": "",
                     "type": "text",
                     "instructions": "",
                     "required": 0,
@@ -301,12 +322,14 @@
                     "placeholder": "",
                     "prepend": "",
                     "append": "",
-                    "maxlength": ""
+                    "maxlength": "",
+                    "parent_repeater": "field_606afc52bbf57"
                 },
                 {
                     "key": "field_606afcc3bbf5a",
                     "label": "Metric size",
                     "name": "pim_sizes_metric_size",
+                    "aria-label": "",
                     "type": "text",
                     "instructions": "",
                     "required": 0,
@@ -320,12 +343,14 @@
                     "placeholder": "",
                     "prepend": "",
                     "append": "",
-                    "maxlength": ""
+                    "maxlength": "",
+                    "parent_repeater": "field_606afc52bbf57"
                 },
                 {
                     "key": "field_606afcdfbbf5b",
                     "label": "Type",
                     "name": "pim_sizes_type",
+                    "aria-label": "",
                     "type": "text",
                     "instructions": "",
                     "required": 0,
@@ -339,12 +364,14 @@
                     "placeholder": "",
                     "prepend": "",
                     "append": "",
-                    "maxlength": ""
+                    "maxlength": "",
+                    "parent_repeater": "field_606afc52bbf57"
                 },
                 {
                     "key": "field_606afd04bbf5c",
                     "label": "Recommended_size",
                     "name": "pim_sizes_recommended_size",
+                    "aria-label": "",
                     "type": "true_false",
                     "instructions": "",
                     "required": 0,
@@ -358,12 +385,14 @@
                     "default_value": 0,
                     "ui": 0,
                     "ui_on_text": "",
-                    "ui_off_text": ""
+                    "ui_off_text": "",
+                    "parent_repeater": "field_606afc52bbf57"
                 },
                 {
                     "key": "field_606b026cd1ff7",
                     "label": "Image",
                     "name": "pim_sizes_image",
+                    "aria-label": "",
                     "type": "image",
                     "instructions": "",
                     "required": 0,
@@ -382,12 +411,14 @@
                     "max_width": "",
                     "max_height": "",
                     "max_size": "",
-                    "mime_types": ""
+                    "mime_types": "",
+                    "parent_repeater": "field_606afc52bbf57"
                 },
                 {
                     "key": "field_606b028ed1ff8",
                     "label": "Silicon image",
                     "name": "pim_sizes_silicon_image",
+                    "aria-label": "",
                     "type": "image",
                     "instructions": "",
                     "required": 0,
@@ -406,12 +437,14 @@
                     "max_width": "",
                     "max_height": "",
                     "max_size": "",
-                    "mime_types": ""
+                    "mime_types": "",
+                    "parent_repeater": "field_606afc52bbf57"
                 },
                 {
                     "key": "field_62c6efd7cf1b6",
                     "label": "Active",
                     "name": "pim_sizes_active",
+                    "aria-label": "",
                     "type": "true_false",
                     "instructions": "",
                     "required": 0,
@@ -425,80 +458,17 @@
                     "default_value": 0,
                     "ui": 0,
                     "ui_on_text": "",
-                    "ui_off_text": ""
+                    "ui_off_text": "",
+                    "parent_repeater": "field_606afc52bbf57"
                 }
-            ]
-        },
-        {
-            "key": "field_602e378e03959",
-            "label": "Warnings and Contraindications",
-            "name": "pim_disclaimers",
-            "type": "repeater",
-            "instructions": "",
-            "required": 0,
-            "conditional_logic": 0,
-            "wrapper": {
-                "width": "",
-                "class": "",
-                "id": ""
-            },
-            "collapsed": "",
-            "min": 0,
-            "max": 0,
-            "layout": "table",
-            "button_label": "Add Warning or Disclaimer",
-            "sub_fields": [
-                {
-                    "key": "field_6239c56dcd493",
-                    "label": "Type",
-                    "name": "pim_wc_type",
-                    "type": "select",
-                    "instructions": "",
-                    "required": 0,
-                    "conditional_logic": 0,
-                    "wrapper": {
-                        "width": "",
-                        "class": "",
-                        "id": ""
-                    },
-                    "choices": {
-                        "default": "default",
-                        "contraindications": "contraindications",
-                        "warnings": "warnings"
-                    },
-                    "default_value": false,
-                    "allow_null": 0,
-                    "multiple": 0,
-                    "ui": 0,
-                    "return_format": "value",
-                    "ajax": 0,
-                    "placeholder": ""
-                },
-                {
-                    "key": "field_6234a3bd985ca",
-                    "label": "Item",
-                    "name": "pim_disclaimer",
-                    "type": "text",
-                    "instructions": "",
-                    "required": 0,
-                    "conditional_logic": 0,
-                    "wrapper": {
-                        "width": "",
-                        "class": "",
-                        "id": ""
-                    },
-                    "default_value": "",
-                    "placeholder": "",
-                    "prepend": "",
-                    "append": "",
-                    "maxlength": ""
-                }
-            ]
+            ],
+            "rows_per_page": 20
         },
         {
             "key": "field_6049f3dc382bf",
             "label": "Kit",
             "name": "pim_is_kit",
+            "aria-label": "",
             "type": "true_false",
             "instructions": "",
             "required": 0,
@@ -518,6 +488,7 @@
             "key": "field_6049f4847272e",
             "label": "Attributes",
             "name": "pim_attributes",
+            "aria-label": "",
             "type": "repeater",
             "instructions": "",
             "required": 0,
@@ -531,12 +502,13 @@
             "min": 0,
             "max": 0,
             "layout": "table",
-            "button_label": "",
+            "button_label": "Add Row",
             "sub_fields": [
                 {
                     "key": "field_6049f4a47272f",
                     "label": "Name",
                     "name": "pim_attribute_name",
+                    "aria-label": "",
                     "type": "text",
                     "instructions": "",
                     "required": 0,
@@ -550,12 +522,14 @@
                     "placeholder": "",
                     "prepend": "",
                     "append": "",
-                    "maxlength": ""
+                    "maxlength": "",
+                    "parent_repeater": "field_6049f4847272e"
                 },
                 {
                     "key": "field_6049f4b272730",
                     "label": "Description",
                     "name": "pim_attribute_description",
+                    "aria-label": "",
                     "type": "textarea",
                     "instructions": "",
                     "required": 0,
@@ -569,14 +543,17 @@
                     "placeholder": "",
                     "maxlength": "",
                     "rows": "",
-                    "new_lines": ""
+                    "new_lines": "",
+                    "parent_repeater": "field_6049f4847272e"
                 }
-            ]
+            ],
+            "rows_per_page": 20
         },
         {
             "key": "field_60f00fb5b4228",
             "label": "Ingredients relation",
             "name": "pim_ingredients_relation",
+            "aria-label": "",
             "type": "relationship",
             "instructions": "",
             "required": 0,
@@ -604,6 +581,7 @@
             "key": "field_62395fbee082e",
             "label": "Compatible modalities",
             "name": "pim_compatible_modalities",
+            "aria-label": "",
             "type": "repeater",
             "instructions": "",
             "required": 0,
@@ -623,6 +601,7 @@
                     "key": "field_62396024e082f",
                     "label": "Modality",
                     "name": "pim_modality",
+                    "aria-label": "",
                     "type": "text",
                     "instructions": "",
                     "required": 0,
@@ -636,14 +615,17 @@
                     "placeholder": "",
                     "prepend": "",
                     "append": "",
-                    "maxlength": ""
+                    "maxlength": "",
+                    "parent_repeater": "field_62395fbee082e"
                 }
-            ]
+            ],
+            "rows_per_page": 20
         },
         {
             "key": "field_61e6c30ddfd4d",
             "label": "Professional application",
             "name": "pim_professional_application",
+            "aria-label": "",
             "type": "repeater",
             "instructions": "",
             "required": 0,
@@ -663,6 +645,7 @@
                     "key": "field_62625c8662a24",
                     "label": "Order",
                     "name": "pim_professional_application_order",
+                    "aria-label": "",
                     "type": "number",
                     "instructions": "",
                     "required": 0,
@@ -678,12 +661,14 @@
                     "append": "",
                     "min": "",
                     "max": "",
-                    "step": ""
+                    "step": "",
+                    "parent_repeater": "field_61e6c30ddfd4d"
                 },
                 {
                     "key": "field_61e6c30ddfd4e",
                     "label": "Description",
                     "name": "pim_professional_application_description",
+                    "aria-label": "",
                     "type": "wysiwyg",
                     "instructions": "",
                     "required": 0,
@@ -697,12 +682,14 @@
                     "tabs": "all",
                     "toolbar": "basic",
                     "media_upload": 0,
-                    "delay": 0
+                    "delay": 0,
+                    "parent_repeater": "field_61e6c30ddfd4d"
                 },
                 {
                     "key": "field_62625c9662a25",
                     "label": "Has optional step?",
                     "name": "pim_professional_application_is_optional",
+                    "aria-label": "",
                     "type": "true_false",
                     "instructions": "",
                     "required": 0,
@@ -716,12 +703,14 @@
                     "default_value": 0,
                     "ui": 0,
                     "ui_on_text": "",
-                    "ui_off_text": ""
+                    "ui_off_text": "",
+                    "parent_repeater": "field_61e6c30ddfd4d"
                 },
                 {
                     "key": "field_62625cc262a26",
                     "label": "Optional step text",
                     "name": "pim_professional_application_optional_text",
+                    "aria-label": "",
                     "type": "textarea",
                     "instructions": "",
                     "required": 0,
@@ -735,14 +724,17 @@
                     "placeholder": "",
                     "maxlength": "",
                     "rows": "",
-                    "new_lines": ""
+                    "new_lines": "",
+                    "parent_repeater": "field_61e6c30ddfd4d"
                 }
-            ]
+            ],
+            "rows_per_page": 20
         },
         {
             "key": "field_61e6c17518916",
             "label": "How to use",
             "name": "pim_how_to_use",
+            "aria-label": "",
             "type": "wysiwyg",
             "instructions": "",
             "required": 0,
@@ -762,6 +754,7 @@
             "key": "field_62388c372d685",
             "label": "Internals",
             "name": "pim_internals",
+            "aria-label": "",
             "type": "group",
             "instructions": "These fields won't be displayed on frontend and serve only as a reference to PIM values.",
             "required": 0,
@@ -777,6 +770,7 @@
                     "key": "field_623962b356bc0",
                     "label": "Ingredients (internal)",
                     "name": "pim_ingredients_internal",
+                    "aria-label": "",
                     "type": "repeater",
                     "instructions": "",
                     "required": 0,
@@ -790,12 +784,13 @@
                     "min": 0,
                     "max": 0,
                     "layout": "table",
-                    "button_label": "",
+                    "button_label": "Add Row",
                     "sub_fields": [
                         {
                             "key": "field_623963d98ac37",
                             "label": "Ingredients",
                             "name": "pim_ingredient_section_content_internal",
+                            "aria-label": "",
                             "type": "text",
                             "instructions": "",
                             "required": 0,
@@ -809,54 +804,17 @@
                             "placeholder": "",
                             "prepend": "",
                             "append": "",
-                            "maxlength": ""
+                            "maxlength": "",
+                            "parent_repeater": "field_623962b356bc0"
                         }
-                    ]
-                },
-                {
-                    "key": "field_62396108a31a6",
-                    "label": "Warnings and Contraindications (internal)",
-                    "name": "pim_disclaimers_internal",
-                    "type": "repeater",
-                    "instructions": "",
-                    "required": 0,
-                    "conditional_logic": 0,
-                    "wrapper": {
-                        "width": "",
-                        "class": "",
-                        "id": ""
-                    },
-                    "collapsed": "",
-                    "min": 0,
-                    "max": 0,
-                    "layout": "table",
-                    "button_label": "",
-                    "sub_fields": [
-                        {
-                            "key": "field_6239612da31a7",
-                            "label": "Item",
-                            "name": "pim_disclaimer_internal",
-                            "type": "text",
-                            "instructions": "",
-                            "required": 0,
-                            "conditional_logic": 0,
-                            "wrapper": {
-                                "width": "",
-                                "class": "",
-                                "id": ""
-                            },
-                            "default_value": "",
-                            "placeholder": "",
-                            "prepend": "",
-                            "append": "",
-                            "maxlength": ""
-                        }
-                    ]
+                    ],
+                    "rows_per_page": 20
                 },
                 {
                     "key": "field_62396ed478fc7",
                     "label": "How to use (internal)",
                     "name": "pim_how_to_use_internal",
+                    "aria-label": "",
                     "type": "wysiwyg",
                     "instructions": "",
                     "required": 0,
@@ -876,6 +834,7 @@
                     "key": "field_62690f531b5a2",
                     "label": "Updated at (PIM Core)",
                     "name": "pim_updated_at_pim_core",
+                    "aria-label": "",
                     "type": "date_time_picker",
                     "instructions": "",
                     "required": 0,
@@ -893,6 +852,7 @@
                     "key": "field_628e19f4e4422",
                     "label": "Ingredients absctract (internal)",
                     "name": "pim_ingredients_absctract_internal",
+                    "aria-label": "",
                     "type": "wysiwyg",
                     "instructions": "",
                     "required": 0,
@@ -928,5 +888,6 @@
     "hide_on_screen": "",
     "active": true,
     "description": "",
-    "modified": 1657215538
+    "show_in_rest": 1,
+    "modified": 1681157977
 }
