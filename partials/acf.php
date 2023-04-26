@@ -105,10 +105,10 @@ if( have_rows('flexible_content') ):
                   <a href="/ingredients/" class="button white !px-4 !gap-3 !justify-between rounded"><span>explore ingredients</span><i class="icon-chevron-right text-sm"></i></a>
                 </div>
                 <div class="flex justify-end items-end">
-                  <a href="https://dermalogicathebook.com/" target="_blank" class="text-sm !text-secondary !underline">take me to legacy version of The Book</a>
+                  <a href="http://dev-thebook.dermalogica.com/" target="_blank" class="text-sm !text-secondary !underline">take me to legacy version of The Book</a>
                 </div>
               </div>
-              <p class="mt-4 !text-xs text-center">By interacting with this web site, you are agreeing to our <a href="https://thebook.local/#" target="_blank" class="!underline">Terms of Use</a> and <a href="https://thebook.local/#" target="_blank" class="!underline">Privacy Notice</a></p>
+              <p class="mt-4 !text-xs text-center">By interacting with this web site, you are agreeing to our <a href="https://www.unileverus.com/terms/termsofuse.html" target="_blank" class="!underline">Terms of Use</a> and <a href="https://www.dermalogica.com/pages/privacy-notice" target="_blank" class="!underline">Privacy Notice</a></p>
               <p class="!text-xs text-center">Want to share your feedback on this experience? <a href="https://forms.microsoft.com/pages/responsepage.aspx?id=3rLauO7D-keEs-pxmOKKvbn1lOhxKiRHlX8CIsSG7bRUQjNCQVVITzAzUUY0UkNLRzc3RjZMVENUNy4u" target="_blank" class="!underline">Click here</a>.</p>
               </div>
 
