@@ -102,6 +102,7 @@ if( have_rows('flexible_content') ):
                 <div class="flex flex-col gap-4">
                   <a href="/professional-products/" class="button white !px-4 !gap-3 !justify-between rounded"><span>explore professional products</span><i class="icon-chevron-right text-sm"></i></a>
                   <a href="/retail-products/" class="button white !px-4 !gap-3 !justify-between rounded"><span>explore retail products</span><i class="icon-chevron-right text-sm"></i></a>
+                  <a href="/services/" class="button white !px-4 !gap-3 !justify-between rounded"><span>explore professional services</span><i class="icon-chevron-right text-sm"></i></a>
                   <a href="/ingredients/" class="button white !px-4 !gap-3 !justify-between rounded"><span>explore ingredients</span><i class="icon-chevron-right text-sm"></i></a>
                 </div>
                 <div class="flex justify-end items-end">
