@@ -7,7 +7,6 @@ $bioactivity_score = '';
 
 function _isOnlyPro($id){
     $product_type = get_the_terms( $id, 'product_type' );
-    print_r($product_type);
     $pType = false;
     foreach($product_type as $t){
         if($t->slug==='professional'){
@@ -17,7 +16,6 @@ function _isOnlyPro($id){
             $pType = false;
         }
     }
-    print_r(array('$pType'=>$pType));
     return $pType;
 }
 
