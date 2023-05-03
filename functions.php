@@ -237,5 +237,31 @@ function wpse73190_adjacent_post_sort( $orderby )
 add_filter( 'get_previous_post_sort', 'wpse73190_adjacent_post_sort' );
 add_filter( 'get_next_post_sort', 'wpse73190_adjacent_post_sort' );
 
+/* Gluu */
+
+function tf_check_user_role( $roles ) {
+    /*@ Check user logged-in */
+    if ( is_user_logged_in() ) :
+        /*@ Get current logged-in user data */
+        $user = wp_get_current_user();
+        /*@ Fetch only roles */
+        $currentUserRoles = $user->roles;
+        /*@ Intersect both array to check any matching value */
+        $isMatching = array_intersect( $currentUserRoles, $roles);
+        $response = false;
+        /*@ If any role matched then return true */
+        if ( !empty($isMatching) ) :
+            $response = true;        
+        endif;
+        return $response;
+    endif;
+}
+$roles = [ 'subscriber' ];
+if ( tf_check_user_role($roles) ) :
+    add_filter('show_admin_bar', '__return_false');
+endif;
+
+add_action( 'init', 'blockusers_init' ); function blockusers_init() { if ( is_admin() && ! current_user_can( 'administrator' ) && ! ( defined( 'DOING_AJAX' ) && DOING_AJAX ) ) { wp_redirect( home_url() ); exit; } } 
+
 
 ?>
