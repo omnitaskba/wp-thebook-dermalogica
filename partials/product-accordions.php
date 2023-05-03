@@ -4,6 +4,24 @@ $accordions = array();
 $skin_condition = '';
 $bioactivity_score = '';
 
+
+function _isOnlyPro($id){
+    $product_type = get_the_terms( $id, 'product_type' );
+    print_r($product_type);
+    $pType = false;
+    foreach($product_type as $t){
+        if($t->slug==='professional'){
+            $pType = true;
+        }
+        if($t->slug==='retail'){
+            $pType = false;
+        }
+    }
+    print_r(array('$pType'=>$pType));
+    return $pType;
+}
+
+
 //
 if (get_field('pim_how_to_use') != '') {
     $accordions[2] = array('How to Use', get_field('pim_how_to_use'));
@@ -82,17 +100,31 @@ if (have_rows('pim_compatible_modalities')) {
 if (have_rows('pim_ingredients')) {
 
     $pim_ingredients = '';
-    while (have_rows('pim_ingredients')) {
-        the_row();
-        $value = get_sub_field('pim_ingredient_section_content');
-        $type = get_sub_field('pim_ingridients_type');
+    $isLocked = false;
 
-        $title = '';
-        if ($type != 'default') {
-            $title = '<strong class="bold">' . $type . '</strong><br/>';
+    if(_isOnlyPro($post->ID)){
+        if(is_user_logged_in()){
+            $isLocked = false;
+        }else{
+            $isLocked = true;
         }
+    }
 
-        $pim_ingredients .= '<p>' . $title . $value . '</p>';
+    if(!$isLocked){
+        while (have_rows('pim_ingredients')) {
+            the_row();
+            $value = get_sub_field('pim_ingredient_section_content');
+            $type = get_sub_field('pim_ingridients_type');
+
+            $title = '';
+            if ($type != 'default') {
+                $title = '<strong class="bold">' . $type . '</strong><br/>';
+            }
+
+            $pim_ingredients .= '<p>' . $title . $value . '</p>';
+        }
+    } else {
+        $pim_ingredients = lockedContent('Ingredients');
     }
     $accordions[13] = array('Ingredients', $pim_ingredients);
 }
@@ -118,23 +150,27 @@ if (have_rows('pim_professional_application')) {
     $applicationsNew = '';
     $an = array();
     $i = 0;
-    while (have_rows('pim_professional_application')) {
-        the_row();
-        $i++;
-        $pim_professional_application_order = get_sub_field('pim_professional_application_order');
-        $pim_professional_application_description = get_sub_field('pim_professional_application_description');
-        $pim_professional_application_is_optional = get_sub_field('pim_professional_application_is_optional');
-        $pim_professional_application_optional_text = get_sub_field('pim_professional_application_optional_text');
-        $an[] = array('order' => $pim_professional_application_order, 'description' => $pim_professional_application_description, 'optional' => $pim_professional_application_is_optional, 'optionalText' => $pim_professional_application_optional_text);
-    }
-
-    if (count($an) > 0) {
-        ksort($an);
-        $i = 0;
-        foreach ($an as $item) {
+    if (is_user_logged_in()) {
+        while (have_rows('pim_professional_application')) {
+            the_row();
             $i++;
-            $applicationsNew .= '<div class="orderItem"><span class="num">' . $i . '</span>' . $item['description'] . ($item['optional'] ? '<div class="mb-4 pl-4">' . $item['optionalText'] . '<br/><br/></div>' : '') . '</div>';
+            $pim_professional_application_order = get_sub_field('pim_professional_application_order');
+            $pim_professional_application_description = get_sub_field('pim_professional_application_description');
+            $pim_professional_application_is_optional = get_sub_field('pim_professional_application_is_optional');
+            $pim_professional_application_optional_text = get_sub_field('pim_professional_application_optional_text');
+            $an[] = array('order' => $pim_professional_application_order, 'description' => $pim_professional_application_description, 'optional' => $pim_professional_application_is_optional, 'optionalText' => $pim_professional_application_optional_text);
         }
+
+        if (count($an) > 0) {
+            ksort($an);
+            $i = 0;
+            foreach ($an as $item) {
+                $i++;
+                $applicationsNew .= '<div class="orderItem"><span class="num">' . $i . '</span>' . $item['description'] . ($item['optional'] ? '<div class="mb-4 pl-4">' . $item['optionalText'] . '<br/><br/></div>' : '') . '</div>';
+            }
+        }
+    } else {
+        $applicationsNew = lockedContent('Professional Application');
     }
 
     $accordions[15] = array('Professional Application', $applicationsNew);
