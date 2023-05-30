@@ -263,5 +263,28 @@ endif;
 
 add_action( 'init', 'blockusers_init' ); function blockusers_init() { if ( is_admin() && ! current_user_can( 'administrator' ) && ! ( defined( 'DOING_AJAX' ) && DOING_AJAX ) ) { wp_redirect( home_url() ); exit; } } 
 
+// The Book Identity methods
+
+function app_rest_headers_allowed_cors_headers( $allow_headers ) {
+    return array(
+        'Origin',
+        'Content-Type',
+        'X-Auth-Token',
+        'Accept',
+        'Authorization',
+        'X-Request-With',
+        'Access-Control-Request-Method',
+        'Access-Control-Request-Headers',
+    );
+}
+add_filter( 'rest_allowed_cors_headers', 'app_rest_headers_allowed_cors_headers' );
+
+
+function app_rest_headers_pre_serve_request( $value ) {
+    header( 'Access-Control-Allow-Origin: *', true );
+ 
+    return $value;
+}
+add_filter( 'rest_pre_serve_request', 'app_rest_headers_pre_serve_request', 11 );
 
 ?>
